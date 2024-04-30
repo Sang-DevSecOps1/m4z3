@@ -1,0 +1,6 @@
+# maze
+<<<<<<< HEAD
+Maze, an API Vulnerability Scanning Tool, with a scope of scanning for Boken Object Level Authorization (BOLA), The OWASP Top 1 API Vulnerability. This Tool will scan for BOLA, generate  Detailed Technical and Executive Reports for the SOC Team, Developers and Executives, like Stakeholders in an organization. The reports are designed to describe the impact of identified vulnerabilities on Business Logic and Operations, Notify Owners of APIs with Shadow sensitive data like PIIs, financial transactions, Trade Secrets,etc, then  relate the impact they will experience if Sensitive data is exposed or accessed.
+=======
+MMaze, an API Vulnerability Scanning Tool, with the "for now" scope of scanning for Boken Object Level Authorization (BOLA), The OWASP Top 1 API Vulnerability. This Tool will scan for BOLA, generate detailed technical and executive reports for the SOC Team, Developers and Executives, like Stakeholders in an organization. The reports are designed to describe the impact of identified vulnerabilities on Business Logic and Operations, notify API owners of APIs containing Shadow sensitive data like PIIs, Financial transaction Records, Trade Secrets,etc, then relate the impact Sensitive data is accessed, exposed, modified, or destroyed by a malicious actor.
+>>>>>>> b36eb8a (User Sign Up for Front and Backend)
