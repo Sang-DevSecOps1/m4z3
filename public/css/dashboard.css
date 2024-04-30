@@ -1,0 +1,484 @@
+@import url("https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Roboto+Slab:wght@100..900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.navigation {
+  background-color: #26262f;
+  width: 100%;
+  height: 10vh;
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+.navigation a {
+  margin-top: 5%;
+  margin-left: 7%;
+  text-decoration: none;
+  color: #7a38e9;
+  font-weight: bold;
+  font-size: 18px;
+}
+.navigation a .logo {
+  color: red;
+  font-size: 25px;
+}
+.navigation .search-class {
+  margin-top: 2%;
+  height: 1vh;
+  padding: 20px;
+  color: white;
+  border: none;
+  margin-left: 10%;
+  background: none;
+  background-color: #2e2e39;
+  width: 35vw;
+}
+.search-class::placeholder {
+  padding: 20px;
+  color: grey;
+}
+.navigation .nav-buttons {
+  margin-top: 7%;
+  margin-left: 70%;
+  width: 7vw;
+  height: fit-content;
+}
+.nav-buttons a img {
+  width: 20px;
+  border: 20px;
+}
+.nav-buttons button {
+  width: 25px;
+  height: 25px;
+  margin-left: 4%;
+  border-radius: 30px;
+  border: none;
+  background: none;
+  border: 1px solid grey;
+}
+.nav-buttons button img {
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+}
+body {
+  font-family: "Roboto Slab", serif;
+  background-color: #26262f;
+}
+.dashboard {
+  display: flex;
+  height: 100%;
+}
+.dashboard .dashboard-links {
+  display: grid;
+  width: 13vw;
+  margin-left: 1%;
+}
+.dashboard-links-div-main {
+  display: grid;
+  height: 45vh;
+}
+.dashboard-links .other-dashboard-links-div-main {
+  height: 15vh;
+  margin-top: 90%;
+}
+.dashboard-links button {
+  background: none;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  color: #eee8f1;
+  width: 8vw;
+  margin-bottom: 8%;
+  font-size: 11px;
+}
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 0;
+  width: fit-content;
+  color: #eee8f1;
+  font-size: 15px;
+}
+.toggle,
+.notifications {
+  font-size: 25px;
+}
+.total-scans {
+  font-size: 40px;
+  color: white;
+}
+.complete-scans {
+  font-size: 40px;
+  color: #00e865;
+}
+.total-targets {
+  font-size: 40px;
+  color: orange;
+}
+.total-vulnerabilities {
+  font-size: 40px;
+  color: blue;
+}
+.dashboard-button {
+  margin-left: 6%;
+}
+.display-dashboard-links-content {
+  display: none;
+  width: 85%;
+  height: 100vh;
+  background-color: #191b23;
+}
+.display-dashboard-links-content .user-dashboard {
+  padding: 15px;
+}
+.user-dashboard h1 {
+  margin-bottom: 2%;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+}
+.user-dashboard .all-sections {
+  display: grid;
+  gap: 4%;
+  grid-template-columns: auto auto auto auto;
+}
+.user-dashboard .dashboard-sections {
+  background-color: #26262f;
+  width: 18vw;
+  border-radius: 7px;
+  height: auto;
+}
+.dashboard-sections .dashboard-scan-results {
+  display: flex;
+  padding: 20px;
+  color: white;
+}
+.dashboard-scan-results button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  background: none;
+  border: none;
+}
+.dashboard-scan-results img {
+  width: 50px;
+  height: auto;
+}
+.dashboard-scan-results .total {
+  margin-left: 10%;
+}
+.total .total-number {
+  text-align: center;
+  margin-top: 10%;
+}
+.target-details {
+  border: 1px solid #7a38e9;
+  width: 98%;
+  background-color: #26262f;
+  margin-left: 1%;
+  padding: 10px;
+}
+.target-details .vuln-levels {
+  padding: 4px;
+}
+.vuln-levels h1 {
+  color: white;
+  font-weight: 300;
+  font-family: "Roboto Slab", serif;
+  font-size: 13px;
+}
+.vuln-levels .high,
+.medium,
+.low {
+  margin-left: 3px;
+  width: 3vw;
+  font-size: 9px;
+  height: 3vh;
+  border: none;
+}
+.high {
+  background-color: red;
+  color: white;
+}
+.medium {
+  background-color: orange;
+  color: white;
+}
+.low {
+  background-color: blue;
+  color: white;
+}
+.diff-target {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 15px;
+  margin-top: 3%;
+  width: 100%;
+}
+.diff-target .vulnerabilities {
+  padding: 10px;
+  height: 100%;
+  border: 1px solid white;
+}
+.vulnerabilities h1 {
+  text-align: left;
+  color: white;
+  font-size: 15px;
+  font-weight: 300;
+}
+.target {
+  width: 85%;
+  display: none;
+  height: 100%;
+}
+.target .target-div {
+  height: 87.4vh;
+  background-color: aliceblue;
+}
+.target-nav {
+  display: flex;
+  background-color: rgba(240, 248, 255, 0.1);
+}
+.target .target-nav::after {
+  content: "";
+  width: 84vw;
+  display: flex;
+  height: 1px;
+  margin-top: 4%;
+  background-color: black;
+  position: absolute;
+}
+.target-heading {
+  padding: 10px;
+}
+.target-heading .add-target {
+  color: red;
+  font-size: 25px;
+}
+.target-heading h1 {
+  color: #011222;
+  font-weight: 800;
+  margin-top: 1%;
+  margin-left: 2%;
+  width: 45vw;
+  font-size: 20px;
+}
+.target-nav .target-options {
+  margin-left: 4%;
+  padding: 10px;
+}
+.target-options button {
+  width: 8vw;
+  margin-top: 1%;
+  display: inline-flex;
+  align-items: center;
+  color: #011627;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  font-size: 10px;
+  background-color: rgba(158, 154, 154, 0.494);
+  height: 5vh;
+}
+.target-options .target-controls {
+  text-align: center;
+  color: #011222;
+  margin-left: 2%;
+  font-size: 20px;
+}
+.target-form-div {
+  padding: 5px;
+}
+.target-form-div .target-form-class {
+  display: grid;
+  background-color: #011627;
+  width: 30vw;
+  height: 100%;
+  margin-top: 2%;
+  margin-left: 30%;
+}
+.target-form-class label {
+  margin-left: 12%;
+  display: grid;
+  padding: 10px;
+  color: white;
+  margin-top: 4%;
+}
+.target-form-class input {
+  width: 20vw;
+  height: 8vh;
+  background: none;
+  outline: 0;
+  margin-left: 3%;
+  border: none;
+  border-bottom: 1px solid white;
+  color: white;
+  font-size: 12px;
+}
+.target-form-class input::placeholder {
+  font-size: 10px;
+  margin: 0;
+  padding: 0;
+  color: grey;
+}
+select {
+  border: none;
+  margin-top: 5%;
+  width: 10vw;
+  height: 5vh;
+  margin-left: 15%;
+  border-radius: 8px;
+}
+.create-scan {
+  margin-top: 7%;
+  width: 30vw;
+  height: 5vh;
+  color: white;
+  background-color: rebeccapurple;
+  border: none;
+  font-size: 15px;
+}
+.scan {
+  display: none;
+  width: 85%;
+  height: 100%;
+}
+.scan .scans {
+  /* border: 1px solid red; */
+  color: red;
+  font-weight: bold;
+  font-size: 20px;
+}
+.scan .scan-div {
+  height: 87.4vh;
+  background-color: aliceblue;
+}
+.scan-nav {
+  display: flex;
+}
+.scan .scan-nav::after {
+  content: "";
+  width: 84vw;
+  display: flex;
+  height: 1px;
+  margin-top: 4%;
+  background-color: black;
+  position: absolute;
+}
+.scan-heading {
+  padding: 10px;
+  width: 30vw;
+}
+.scan-heading h1 {
+  color: #011222;
+  font-weight: 800;
+  margin-top: 1%;
+  margin-left: 2%;
+  font-size: 20px;
+}
+.scan-nav .scan-options {
+  padding: 10px;
+  margin-left: 3%;
+}
+.scan-options button {
+  width: 8vw;
+  border: none;
+  margin-top: 1%;
+  margin-left: 1px;
+  display: inline-flex;
+  align-items: center;
+  color: #011627;
+  font-weight: bold;
+  background-color: rgba(158, 154, 154, 0.494);
+  font-size: 10px;
+  height: 5vh;
+  border-radius: 5px;
+}
+.scan .scan-controls {
+  font-size: 20px;
+  margin-left: 6%;
+  color: black;
+}
+.scan-options .new-scan {
+  color: white;
+  background-color: red;
+}
+.new-scan .new-scan-control {
+  color: white;
+}
+.filter-scan {
+  padding: 10px;
+  margin-top: 1%;
+}
+.filter-scan input {
+  width: 95%;
+  padding: 10px;
+  font-weight: bold;
+  color: #011627;
+  margin-left: 2%;
+  border: 1px solid rgba(128, 128, 128, 0.303);
+}
+.my-vulnerabilities {
+  display: none;
+  width: 85%;
+  height: 100%;
+}
+.my-vulnerabilities .vulnerability {
+  color: red;
+  font-size: 25px;
+}
+.my-vulnerabilities .vulnerabilities-div {
+  height: 87.4vh;
+  background-color: aliceblue;
+}
+.vulnerabilities-nav {
+  display: flex;
+}
+.my-vulnerabilities .vulnerabilities-nav::after {
+  content: "";
+  width: 85vw;
+  display: flex;
+  height: 1px;
+  margin-top: 4%;
+  background-color: black;
+  position: absolute;
+}
+.vulnerabilities-heading {
+  padding: 10px;
+  width: 35vw;
+}
+.vulnerabilities-heading h1 {
+  color: #011222;
+  font-weight: 800;
+  margin-top: 1%;
+  display: inline-flex;
+  align-items: center;
+  margin-left: 2%;
+  font-size: 20px;
+}
+.vulnerabilities-nav .vulnerabilities-options {
+  padding: 10px;
+  margin-left: 30%;
+}
+.vulnerabilities-options button {
+  width: 7vw;
+  border: none;
+  margin-top: 1%;
+  display: inline-flex;
+  align-items: center;
+  margin-left: 1px;
+  color: #011627;
+  background-color: rgba(158, 154, 154, 0.494);
+  font-size: 10px;
+  height: 5vh;
+  font-weight: bold;
+  border-radius: 2px;
+}
+.vulnerability-controls {
+  color: black;
+  font-size: 20px;
+  margin-left: 5%;
+}
+.vulnerabilities-options button .more {
+  color: black;
+}

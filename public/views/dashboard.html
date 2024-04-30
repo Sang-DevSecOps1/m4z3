@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
+    <link rel="stylesheet" href="../css/dashboard.css" />
+  </head>
+  <nav class="navigation">
+    <a href="/index.html"
+      ><span class="material-symbols-outlined logo"> wifi_tethering </span
+      >Maze</a
+    >
+    <input
+      type="text"
+      class="search-class"
+      id="searchID"
+      placeholder="search for anything"
+    />
+    <div class="nav-buttons">
+      <span class="material-symbols-outlined toggle"> toggle_on </span>
+      <span class="material-symbols-outlined notifications">
+        notifications_unread
+      </span>
+      <button>
+        <img src="../../images/Screenshot_20240220-233101.png" alt="" />
+      </button>
+    </div>
+  </nav>
+  <body>
+    <div class="dashboard">
+      <div class="dashboard-links">
+        <div class="dashboard-links-div-main">
+          <button>
+            <span class="material-symbols-outlined"> home </span>
+            <span class="dashboard-button">Dashboard</span>
+          </button>
+          <button>
+            <span class="material-symbols-outlined">target</span>
+            <span class="dashboard-button">Target</span>
+            <span class="material-symbols-outlined more"> expand_more </span>
+
+          </button>
+          <button>
+            <span class="material-symbols-outlined"> sensors </span>
+            <span class="dashboard-button"> Scans</span>
+          </button>
+          <button>
+            <span class="material-symbols-outlined"> bug_report </span>
+            <span class="dashboard-button"> Vulnerabilities</span>
+          </button>
+          <button>
+            <span class="material-symbols-outlined"> summarize </span>
+            <span class="dashboard-button"> Report</span>
+          </button>
+          <button>
+            <span class="material-symbols-outlined"> recommend </span>
+            <span class="dashboard-button"> Recommendations</span>
+          </button>
+          <button>
+            <span class="material-symbols-outlined"> security </span>
+            <span class="dashboard-button">Privacy Settings</span>
+          </button>
+          <button>
+            <span class="material-symbols-outlined"> delete </span>
+            <span class="dashboard-button">Trash/Archive</span>
+          </button>
+        </div>
+
+        <!-- For minor links like settings and the likes -->
+        <div class="other-dashboard-links-div-main">
+          <button>
+            <span class="material-symbols-outlined"> contact_support </span>
+            <span class="dashboard-button"> Help</span>
+          </button>
+          <button>
+            <span class="material-symbols-outlined"> accessibility_new </span>
+            <span class="dashboard-button"> Whats New</span>
+          </button>
+          <button>
+            <span class="material-symbols-outlined"> settings </span>
+            <span class="dashboard-button"> About</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="display-dashboard-links-content">
+        <div class="user-dashboard">
+          <h1>Dashboard</h1>
+          <div class="all-sections">
+            <div class="dashboard-sections">
+              <div class="dashboard-scan-results">
+                <button>
+                  <span class="material-symbols-outlined total-scans">
+                    cards
+                  </span>
+                </button>
+                <div class="total">
+                  <p class="total-paragraph">Total Scans</p>
+                  <p class="total-number">0</p>
+                </div>
+              </div>
+            </div>
+            <div class="dashboard-sections">
+              <div class="dashboard-scan-results">
+                <button>
+                  <span class="material-symbols-outlined complete-scans">
+                    add_task
+                  </span>
+                </button>
+                <div class="total">
+                  <p class="total-paragraph">Completed Scans</p>
+                  <p class="total-number">0</p>
+                </div>
+              </div>
+            </div>
+            <div class="dashboard-sections">
+              <div class="dashboard-scan-results">
+                <button>
+                  <span class="material-symbols-outlined total-targets">
+                    other_admission
+                  </span>
+                </button>
+                <div class="total">
+                  <p class="total-paragraph">Total Targets</p>
+                  <p class="total-number">0</p>
+                </div>
+              </div>
+            </div>
+            <div class="dashboard-sections">
+              <div class="dashboard-scan-results">
+                <button>
+                  <span class="material-symbols-outlined total-vulnerabilities">
+                    partner_exchange
+                  </span>
+                </button>
+                <div class="total">
+                  <p class="total-paragraph">Total Vulnerabilities</p>
+                  <p class="total-number">0</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="target-details">
+          <div class="vuln-levels">
+            <h1>Criticality Levels</h1>
+            <button class="high">high</button
+            ><button class="medium">medium</button
+            ><button class="low">low</button>
+          </div>
+          <div class="diff-target">
+            <div class="vulnerabilities">
+              <h1>Most Vulnerable Targets</h1>
+            </div>
+            <div class="vulnerabilities">
+              <h1>Top Vulnerabilities</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- For Targets -->
+      <div class="target">
+        <div class="target-div">
+          <div class="target-nav">
+            <div class="target-heading">
+              <h1>
+                <span class="material-symbols-outlined add-target">
+                  target
+                </span>
+                Add Target
+              </h1>
+            </div>
+            <div class="target-options">
+              <button class="export">
+                <span class="material-symbols-outlined target-controls">
+                  export_notes </span
+                >Export Report
+              </button>
+              <button class="generate-report">
+                <span class="material-symbols-outlined target-controls">
+                  add </span
+                >Generate Report
+              </button>
+              <button class="delete-target">
+                <span class="material-symbols-outlined target-controls">
+                  delete </span
+                >Delete Target
+              </button>
+              <button class="scan">
+                <span class="material-symbols-outlined target-controls">
+                  wifi_tethering </span
+                >Scan Target
+              </button>
+            </div>
+          </div>
+          <div class="target-form-div">
+            <form action="" class="target-form-class" id="targetForm">
+              <label for="target-url"
+                >Target URL
+                <input
+                  type="text"
+                  placeholder="enter target URL"
+                  class="input"
+                  id="targetID"
+                />
+              </label>
+              <label for="target-url"
+                >Target Name
+                <input
+                  type="text"
+                  placeholder="enter target name"
+                  class="input"
+                  id="targetID"
+                />
+              </label>
+              <label for="target-url"
+                >Description
+                <input
+                  type="text"
+                  placeholder="describe target API in five words"
+                  class="input"
+                  id="targetID"
+                />
+              </label>
+
+              <select name="scan-type" id="scanType">
+                <option value="none">Select Scan Type</option>
+                <option value="scan">Full Scan</option>
+                <option value="scan">Half Scan</option>
+                <option value="scan">Scheduled Scan</option>
+              </select>
+
+              <button type="submit" class="create-scan">Create Scan</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- For Scans -->
+      <div class="scan">
+        <div class="scan-div">
+          <div class="scan-nav">
+            <div class="scan-heading">
+              <h1>
+                <span class="material-symbols-outlined scans">
+                  wifi_tethering
+                </span>
+                Scans
+              </h1>
+            </div>
+            <div class="scan-options">
+              <button class="new-scan">
+                <span
+                  class="material-symbols-outlined scan-controls new-scan-control"
+                >
+                  wifi_tethering
+                </span>
+                New Scan
+              </button>
+              <button class="pause-scan">
+                <span class="material-symbols-outlined scan-controls">
+                  pause
+                </span>
+                Pause Scan
+              </button>
+              <button class="stop-scan">
+                <span class="material-symbols-outlined scan-controls">
+                  cancel
+                </span>
+                Stop Scan
+              </button>
+              <button class="delete-scan">
+                <span class="material-symbols-outlined scan-controls">
+                  delete
+                </span>
+                Delete Scan
+              </button>
+              <button class="generate-scan-report">
+                <span class="material-symbols-outlined scan-controls">
+                  flag </span
+                >Generate Report
+              </button>
+              <button class="compare-scan">
+                <span class="material-symbols-outlined scan-controls">
+                  compare_arrows
+                </span>
+                Compare Scans
+              </button>
+            </div>
+          </div>
+
+          <div class="filter-scan">
+            <input type="text" placeholder="Filter" />
+          </div>
+        </div>
+      </div>
+
+      <!-- For Vulnerabilities -->
+      <div class="my-vulnerabilities">
+        <div class="vulnerabilities-div">
+          <div class="vulnerabilities-nav">
+            <div class="vulnerabilities-heading">
+              <h1>
+                <span class="material-symbols-outlined vulnerability">
+                  bug_report </span
+                >Vulnerabilities
+              </h1>
+            </div>
+            <div class="vulnerabilities-options">
+              <button class="refresh-vulnerabilities">
+                <span class="material-symbols-outlined vulnerability-controls">
+                  refresh </span
+                >Refresh
+              </button>
+              <button class="export-vulnerabilities">
+                <span class="material-symbols-outlined vulnerability-controls">
+                  export_notes </span
+                >Export
+              </button>
+              <button class="mark-as">
+                <span class="material-symbols-outlined vulnerability-controls">
+                  check </span
+                >Mark As
+                <span class="material-symbols-outlined more"> expand_more </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

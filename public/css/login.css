@@ -1,0 +1,90 @@
+@import url("https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Roboto+Slab:wght@100..900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Roboto Slab", serif;
+}
+.navigation {
+  background-color: #191b23;
+  height: 10vh;
+}
+.navigation .maze-heading {
+  font-size: 20px;
+  padding: 20px;
+  margin-left: 3%;
+}
+.maze-heading a {
+  text-decoration: none;
+  color: white;
+}
+.maze-heading a .logo {
+  color: red;
+  font-size: 25px;
+}
+.loginDiv {
+  padding: 1px;
+  /* background: linear-gradient(to bottom, #3c3b3b, #191b23, black); */
+  background-color: #26262f;
+  height: 85vh;
+}
+.loginForm {
+  background-color: #191b23;
+  display: grid;
+  width: 30vw;
+  height: 50vh;
+  margin-left: 35%;
+  margin-top: 5%;
+}
+.loginHeading {
+  color: white;
+  text-align: center;
+  font-size: 20px;
+  margin-top: 5%;
+}
+label {
+  margin-left: 20%;
+  color: white;
+  font-size: 13px;
+  font-weight: bold;
+}
+label input {
+  background: none;
+  border: none;
+  border: 1px solid grey;
+  padding: 10px;
+  color: white;
+  height: 6vh;
+  width: 20vw;
+}
+.loginButton {
+  background-color: rebeccapurple;
+  border: none;
+  color: white;
+  height: 6vh;
+  width: 20vw;
+  font-weight: bold;
+  margin-left: 20%;
+  border-radius: 20px;
+}
+.dontHaveAnAccount {
+  color: grey;
+  text-align: center;
+  font-size: 13px;
+}
+.dontHaveAnAccount a {
+  color: white;
+}
+.footer {
+  background-color: #090909;
+  height: 7vh;
+  padding: 1px;
+}
+.footer .footerInfo {
+  color: white;
+  margin-top: 1%;
+  font-size: 13px;
+  text-align: center;
+}
