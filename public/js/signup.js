@@ -90,7 +90,7 @@ signUpForm.addEventListener("submit", (e) => {
       user_email,
       password,
     };
-    
+
     try {
       const response = await fetch(`http://localhost:3000/auth/api/signup`, {
         method: "POST",
@@ -100,11 +100,13 @@ signUpForm.addEventListener("submit", (e) => {
         body: JSON.stringify(credentials),
       });
 
+      console.log("Hello sang");
       if (response.status === 409) {
+        const eError = document.querySelector(".emailError");
         console.log("The email already exists");
-        emailError.innerHTML =
+        eError.innerHTML =
           "Email already exists, please use a different email!!";
-        emailError.classList.add("error");
+        eError.classList.add("error");
         return;
       } else if (response.status === 201) {
         const newUser = await response.json();
