@@ -9,12 +9,18 @@ body {
 }
 .navigation {
   background-color: #191b23;
+  display: inline-flex;
+  align-items: center;
   height: 10vh;
+  width: 100%;
+}
+.navigation img {
+  width: 3vw;
+  margin-left: 1%;
+  height: 6vh;
 }
 .navigation .maze-heading {
   font-size: 20px;
-  padding: 20px;
-  margin-left: 3%;
 }
 .maze-heading a {
   text-decoration: none;

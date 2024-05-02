@@ -11,11 +11,20 @@
   display: grid;
   grid-template-columns: auto auto auto;
 }
+.maze-logo {
+  display: inline-flex;
+  align-items: center;
+}
+.maze-logo img {
+  width: 3vw;
+  margin-left: 1%;
+  height: 6vh;
+}
 .navigation a {
-  margin-top: 5%;
   margin-left: 7%;
   text-decoration: none;
-  color: #7a38e9;
+  /* color: #7a38e9; */
+  color: white;
   font-weight: bold;
   font-size: 18px;
 }
@@ -81,7 +90,7 @@ body {
 }
 .dashboard-links .other-dashboard-links-div-main {
   height: 15vh;
-  margin-top: 90%;
+  margin-top: 110%;
 }
 .dashboard-links button {
   background: none;
@@ -123,7 +132,6 @@ body {
   margin-left: 6%;
 }
 .display-dashboard-links-content {
-  display: none;
   width: 85%;
   height: 100vh;
   background-color: #191b23;

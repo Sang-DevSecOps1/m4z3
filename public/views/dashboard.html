@@ -14,10 +14,13 @@
     <link rel="stylesheet" href="../css/dashboard.css" />
   </head>
   <nav class="navigation">
-    <a href="../index.html"
-      ><span class="material-symbols-outlined logo"> wifi_tethering </span
-      >Maze</a
-    >
+    <div class="maze-logo">
+      <img src="../../images/logo.png" alt="" />
+      <h1 class="maze-heading">
+        <a href="../index.html"> Maze</a>
+        <!-- <span class="material-symbols-outlined logo"> wifi_tethering </span> -->
+      </h1>
+    </div>
     <input
       type="text"
       class="search-class"
@@ -38,35 +41,42 @@
     <div class="dashboard">
       <div class="dashboard-links">
         <div class="dashboard-links-div-main">
-          <button>
+          <button id="users-dashboard">
             <span class="material-symbols-outlined"> home </span>
             <span class="dashboard-button">Dashboard</span>
           </button>
-          <button>
+
+          <button id="user-targets">
             <span class="material-symbols-outlined">target</span>
             <span class="dashboard-button">Target</span>
             <span class="material-symbols-outlined more"> expand_more </span>
           </button>
-          <button>
+
+          <button id="user-scans">
             <span class="material-symbols-outlined"> sensors </span>
             <span class="dashboard-button"> Scans</span>
           </button>
-          <button>
+
+          <button id="user-vulnerabilities">
             <span class="material-symbols-outlined"> bug_report </span>
             <span class="dashboard-button"> Vulnerabilities</span>
           </button>
+
           <button>
             <span class="material-symbols-outlined"> summarize </span>
             <span class="dashboard-button"> Report</span>
           </button>
+
           <button>
             <span class="material-symbols-outlined"> recommend </span>
             <span class="dashboard-button"> Recommendations</span>
           </button>
+
           <button>
             <span class="material-symbols-outlined"> security </span>
             <span class="dashboard-button">Privacy Settings</span>
           </button>
+
           <button>
             <span class="material-symbols-outlined"> delete </span>
             <span class="dashboard-button">Trash/Archive</span>
@@ -90,9 +100,9 @@
         </div>
       </div>
 
-      <div class="display-dashboard-links-content">
+      <div class="display-dashboard-links-content" id="user-dashboard">
         <div class="user-dashboard">
-          <h1>Dashboard</h1>
+          <h1>Dashboard</h1> 
           <div class="all-sections">
             <div class="dashboard-sections">
               <div class="dashboard-scan-results">
@@ -166,7 +176,7 @@
         </div>
       </div>
       <!-- For Targets -->
-      <div class="target">
+      <div class="target" id="dashboard-target">
         <div class="target-div">
           <div class="target-nav">
             <div class="target-heading">
@@ -201,26 +211,26 @@
             </div>
           </div>
           <div class="target-form-div">
-            <form action="" class="target-form-class" id="targetForm">
-              <label for="target-url"
+            <form class="target-form-class" id="targetForm">
+              <label for="targetURL"
                 >Target URL
                 <input
                   type="text"
                   placeholder="enter target URL"
                   class="input"
-                  id="targetID"
+                  id="targetURL"
                 />
               </label>
-              <label for="target-url"
+              <label for="targetName"
                 >Target Name
                 <input
                   type="text"
                   placeholder="enter target name"
                   class="input"
-                  id="targetID"
+                  id="targetName"
                 />
               </label>
-              <label for="target-url"
+              <label for="targetID"
                 >Description
                 <input
                   type="text"
@@ -244,7 +254,7 @@
       </div>
 
       <!-- For Scans -->
-      <div class="scan">
+      <div class="scan" id="dashboard-scan">
         <div class="scan-div">
           <div class="scan-nav">
             <div class="scan-heading">
@@ -303,7 +313,7 @@
       </div>
 
       <!-- For Vulnerabilities -->
-      <div class="my-vulnerabilities">
+      <div class="my-vulnerabilities" id="dashboard-vulnerabilities">
         <div class="vulnerabilities-div">
           <div class="vulnerabilities-nav">
             <div class="vulnerabilities-heading">
@@ -337,5 +347,6 @@
         </div>
       </div>
     </div>
+    <script src="../js/dashboard.js"></script>
   </body>
 </html>
