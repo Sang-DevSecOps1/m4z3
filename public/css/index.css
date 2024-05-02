@@ -16,14 +16,20 @@
 }
 .nav1 {
   width: 18vw;
+  display: inline-flex;
+  align-items: center;
   padding: 10px;
 }
 .nav1 .maze-heading {
   font-size: 18px;
-  margin-left: 3%;
+}
+.nav1 img {
+  width: 3vw;
+  height: 6vh;
 }
 .maze-heading a {
   text-decoration: none;
+  /* color: #7a38e9; */
   color: white;
 }
 .maze-heading a .logo {
