@@ -38,16 +38,13 @@ exports.signUpUser = async (req, res) => {
 
 exports.logInUser = async (req, res) => {
   try {
-    console.log("Its going to work, you'll figure it out.");
     const { user_email, password } = req.body;
     const user = await User.findOne({ user_email }, { password: 1 });
 
     if (!user) {
       return res.status(404).json({ Message: "User not found" });
     } else {
-      console.log(password, user_email);
       const isPasswordsMatch = await bcrypt.compare(password, user.password);
-      console.log(password, user.password);
       if (isPasswordsMatch) {
         const userToSend = {
           userEmail: User.user_email,
@@ -68,7 +65,6 @@ exports.logInUser = async (req, res) => {
       }
     }
   } catch (error) {
-    console.log("Hello");
     console.log(error);
   }
 };

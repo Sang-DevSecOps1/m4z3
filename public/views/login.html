@@ -22,9 +22,9 @@
   </nav>
   <body>
     <div class="loginDiv">
-      <form action="" class="loginForm">
+      <form class="loginForm" id="loginForm">
         <h1 class="loginHeading">Login to maze</h1>
-        <label for="userEmail" class="userEmail">
+        <label for="userEmailInputId" class="userEmail">
           Email <br />
           <input
             type="email"
@@ -34,7 +34,7 @@
           />
         </label>
 
-        <label for="password" class="userPassword">
+        <label for="userPasswordInputId" class="userPassword">
           Password <br />
           <input
             type="password"
@@ -44,7 +44,7 @@
           />
         </label>
 
-        <button class="loginButton" type="button">Log In</button>
+        <button class="loginButton" type="submit">Log In</button>
         <p class="dontHaveAnAccount">
           Don't have an account? <a href="../views/signup.html">Sign Up Here</a>
         </p>
@@ -54,5 +54,6 @@
     <footer class="footer">
       <p class="footerInfo">CopyWright 2024 __Maze__</p>
     </footer>
+    <script src="../js/login.js"></script>
   </body>
 </html>
