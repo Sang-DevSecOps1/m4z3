@@ -23,8 +23,10 @@ exports.signUpUser = async (req, res) => {
     await newUser.save();
 
     console.log(newUser);
-    return res.status(201).send({Message: "User Registration was succesfully",
-    userData: newUser});
+    return res.status(201).send({
+      Message: "User Registration was succesfully",
+      userData: newUser,
+    });
   } catch (error) {
     if (error.code === "23505") {
       return res.status(409).json({ error: "User email already exists" });
@@ -36,35 +38,38 @@ exports.signUpUser = async (req, res) => {
 
 exports.logInUser = async (req, res) => {
   try {
-    const user = await User.findOne({ email: req.body.user_email });
+    console.log("Its going to work, you'll figure it out.");
+    const { user_email, password } = req.body;
+    const user = await User.findOne({ user_email }, { password: 1 });
 
     if (!user) {
-      return next(handleErrors(404, "User not found"));
-    }
-
-    const hashedPassword = req.body.password;
-    const passwordsMatch = await bcrypt.compare(password, hashedPassword);
-
-    if (passwordsMatch) {
-      const userToken = jsonwebtoken.sign(
-        { userEmail: User.email, userPassword: User.password },
-        password.env.TOKEN_KEY
-      );
-
-      const { password, ...info } = User._doc;
-      res
-        .cookie("accessToken", userToken, {
-          httpOnly: true,
-          sameSite: "none",
-          secure: true,
-        })
-        .status(200)
-        .send(info);
+      return res.status(404).json({ Message: "User not found" });
     } else {
-      console.log("Invalid Credentials");
+      console.log(password, user_email);
+      const isPasswordsMatch = await bcrypt.compare(password, user.password);
+      console.log(password, user.password);
+      if (isPasswordsMatch) {
+        const userToSend = {
+          userEmail: User.user_email,
+          Password: User.password,
+        };
+        const userToken = jsonwebtoken.sign(userToSend, process.env.TOKEN_KEY);
+
+        return res.status(200).json({ Message: "User Logged in Sucessfully" });
+        // .cookie("accessToken", userToken, {
+        //   httpOnly: true,
+        //   sameSite: "none",
+        //   secure: true,
+        // }, {Message: "User Log in Successful"})
+        // .status(200)
+        // .send(userToSend);
+      } else {
+        console.log("Invalid Credentials");
+      }
     }
   } catch (error) {
-    next(error);
+    console.log("Hello");
+    console.log(error);
   }
 };
 
