@@ -52,7 +52,10 @@ exports.logInUser = async (req, res) => {
         };
         const userToken = jsonwebtoken.sign(userToSend, process.env.TOKEN_KEY);
 
-        return res.status(200).json({ Message: "User Logged in Sucessfully" });
+        return res.status(200).json({
+          Message: "User Logged in Sucessfully",
+          userDetails: userToSend,
+        });
         // .cookie("accessToken", userToken, {
         //   httpOnly: true,
         //   sameSite: "none",

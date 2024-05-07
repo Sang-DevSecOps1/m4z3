@@ -1,6 +1,5 @@
 const loginForm = document.getElementById("loginForm");
 
-console.log("Hello Sang");
 loginForm.addEventListener("submit", (event) => {
   event.preventDefault();
 
@@ -8,15 +7,14 @@ loginForm.addEventListener("submit", (event) => {
 });
 
 async function userLogin() {
-  const userEmail = document.getElementById("userEmailInputId");
-  const password = document.getElementById("userPasswordInputId");
+  const user_email = document.getElementById("userEmailInputId").value;
+  const password = document.getElementById("userPasswordInputId").value;
 
   const credentials = {
-    user_email: userEmail,
+    user_email,
     password,
   };
 
-  console.log("Hello Sang");
   try {
     const response = await fetch(`http://localhost:1000/auth/api/login`, {
       method: "POST",
@@ -26,17 +24,11 @@ async function userLogin() {
       body: JSON.stringify(credentials),
     });
 
-    console.log("Hello Jesus");
     if (response.status === 200) {
       const loggedUser = await response.json();
-      console.log(loggedUser);
-
       alert("You have successfully logged in.");
-      const userEmail = loggedUser.user_email;
-      const password = loggedUser.password;
-      const user_id = loggedUser.user_id;
 
-      sessionStorage.setItem("email", userEmail);
+      sessionStorage.setItem("email", user_email);
       sessionStorage.setItem("password", password);
       sessionStorage.setItem("user_id", user_id);
     }
