@@ -27,6 +27,7 @@ async function userLogin() {
     if (response.status === 200) {
       const loggedUser = await response.json();
       alert("You have successfully logged in.");
+      window.location = "../views/dashboard.html";
 
       sessionStorage.setItem("email", user_email);
       sessionStorage.setItem("password", password);

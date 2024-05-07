@@ -100,7 +100,6 @@ signUpForm.addEventListener("submit", (e) => {
         body: JSON.stringify(credentials),
       });
 
-      console.log("Hello sang");
       if (response.status === 409) {
         const eError = document.querySelector(".emailError");
         console.log("The email already exists");
@@ -108,11 +107,14 @@ signUpForm.addEventListener("submit", (e) => {
           "Email already exists, please use a different email!!";
         eError.classList.add("error");
         return;
-      } else if (response.status === 201) {
+      } 
+      else if (response.status === 201) {
         const newUser = await response.json();
         console.log(newUser);
 
         alert("You have successfully created an account.");
+        window.location = "../views/dashboard.html";
+
         const userName = newUser.user_name;
         const userEmail = newUser.user_email;
         const password = newUser.password;
