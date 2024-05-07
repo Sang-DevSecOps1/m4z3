@@ -4,27 +4,27 @@ const background = [
   {
     color: "#011627", // Purple color
     writeup1: "Without secure APIs, rapid innovation would be impossible",
-    writeup2: "Get your APIs Scanned to avoid Business Downtime",
+    writeup2: "Get your APIs Scanned to avoid business downtime",
   },
   {
     color: "rgb(0, 0, 43)", // Darker blue
     writeup1: "Without secure APIs, rapid innovation would be impossible",
-    writeup2: "Get your APIs Scanned to avoid Business Downtime",
+    writeup2: "Get your APIs Scanned to avoid business downtime",
   },
   {
     color: "rgb(96, 34, 12)", // Dark Orange
     writeup1: "Without secure APIs, rapid innovation would be impossible",
-    writeup2: "Get your APIs Scanned to avoid Business Downtime",
+    writeup2: "Get your APIs Scanned to avoid business downtime",
   },
   {
     color: "#011627", // Darker gray
     writeup1: "Without secure APIs, rapid innovation would be impossible",
-    writeup2: "Get your APIs Scanned to avoid Business Downtime",
+    writeup2: "Get your APIs Scanned to avoid business downtime",
   },
   {
     color: "rgb(27, 1, 27)", // Dark Purple
     writeup1: "Without secure APIs, rapid innovation would be impossible",
-    writeup2: "Get your APIs Scanned to avoid Business Downtime",
+    writeup2: "Get your APIs Scanned to avoid business downtime",
   },
 ];
 
