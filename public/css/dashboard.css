@@ -11,26 +11,19 @@
   display: grid;
   grid-template-columns: auto auto auto;
 }
-.maze-logo {
+.navigation .maze-logo {
+  margin-top: 3%;
+  margin-left: 3%;
+}
+.maze-logo a {
+  text-decoration: none;
   display: inline-flex;
   align-items: center;
-}
-.maze-logo img {
-  width: 3vw;
-  margin-left: 1%;
-  height: 6vh;
-}
-.navigation a {
-  margin-left: 7%;
-  text-decoration: none;
-  /* color: #7a38e9; */
   color: white;
-  font-weight: bold;
-  font-size: 18px;
 }
-.navigation a .logo {
-  color: red;
-  font-size: 25px;
+.maze-logo a img {
+  width: 3vw;
+  height: 6vh;
 }
 .navigation .search-class {
   margin-top: 2%;

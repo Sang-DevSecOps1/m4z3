@@ -8,33 +8,38 @@ body {
   font-family: "Roboto Slab", serif;
 }
 .navigation {
-  background-color: #191b23;
+  background-color: rgb(0, 0, 43);
   display: inline-flex;
   align-items: center;
   height: 10vh;
   width: 100%;
 }
-.navigation img {
+.navigation::after {
+  width: 100%;
+  position: absolute;
+  margin-top: 3%;
+  content: "";
+  background-color: white;
+  height: 1px;
+}
+.navigation a {
+  padding: 10px;
+  font-size: 18px;
+  text-decoration: none;
+  color: white;
+  display: inline-flex;
+  align-items: center;
+}
+.navigation a img {
   width: 3vw;
   margin-left: 1%;
   height: 6vh;
 }
-.navigation .maze-heading {
-  font-size: 20px;
-}
-.maze-heading a {
-  text-decoration: none;
-  color: white;
-}
-.maze-heading a .logo {
-  color: red;
-  font-size: 25px;
-}
 .signUpDiv {
   padding: 1px;
   /* background: linear-gradient(to bottom, #3c3b3b, #141414, black); */
-  background-color: #26262f;
-  height: 85vh;
+  background-color: rgb(0, 0, 43);
+  height: 83vh;
 }
 .signUpForm {
   background-color: #191b23;
@@ -70,7 +75,7 @@ label .error {
   font-size: 10px;
 }
 .signUpButton {
-  background-color: rebeccapurple;
+  background-color: rgb(0, 0, 43);
   border: none;
   color: white;
   height: 6vh;
@@ -89,7 +94,7 @@ label .error {
 }
 .footer {
   padding: 1px;
-  background-color: #191b23;
+  background-color: rgb(0, 0, 43);
   height: 7vh;
 }
 .footer .footerInfo {
