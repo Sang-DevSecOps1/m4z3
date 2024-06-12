@@ -107,8 +107,7 @@ signUpForm.addEventListener("submit", (e) => {
           "Email already exists, please use a different email!!";
         eError.classList.add("error");
         return;
-      } 
-      else if (response.status === 201) {
+      } else if (response.status === 201) {
         const newUser = await response.json();
         console.log(newUser);
 
