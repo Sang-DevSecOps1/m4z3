@@ -56,6 +56,7 @@ if (app.get("env") === "development") {
 }
 
 //Server listening on port process.env.PORT
+const PORT = 3000;
 const port = process.env.PORT || PORT;
 app.listen(port, () => {
   connectMongodb();
