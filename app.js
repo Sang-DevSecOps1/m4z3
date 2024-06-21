@@ -29,7 +29,7 @@ const connectMongodb = async () => {
 
 app.use(
   cors({
-    origin: "http://localhost:1000",
+    origin: "http://localhost:3000",
     credentials: true,
   })
 );

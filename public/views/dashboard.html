@@ -16,7 +16,7 @@
   <nav class="navigation">
     <div class="maze-logo">
       <a href="../index.html">
-        <img src="../../images/logo.png" alt="" />
+        <img src="../favicon.ico" alt="" />
         Maze</a
       >
       <!-- <span class="material-symbols-outlined logo"> wifi_tethering </span> -->
@@ -125,7 +125,7 @@
                   </span>
                 </button>
                 <div class="total">
-                  <p class="total-paragraph">Completed Scans</p>
+                  <p class="total-paragraph">Total API's Scanned</p>
                   <p class="total-number">0</p>
                 </div>
               </div>
@@ -138,7 +138,7 @@
                   </span>
                 </button>
                 <div class="total">
-                  <p class="total-paragraph">Total Targets</p>
+                  <p class="total-paragraph">Total Flagged Shadow Sensitive Data </p>
                   <p class="total-number">0</p>
                 </div>
               </div>
@@ -151,7 +151,7 @@
                   </span>
                 </button>
                 <div class="total">
-                  <p class="total-paragraph">Total Vulnerabilities</p>
+                  <p class="total-paragraph">Total BOLA Vulnerabilities</p>
                   <p class="total-number">0</p>
                 </div>
               </div>
@@ -159,20 +159,24 @@
           </div>
         </div>
         <div class="target-details">
-          <div class="vuln-levels">
-            <h1>Criticality Levels</h1>
-            <button class="high">high</button
-            ><button class="medium">medium</button
-            ><button class="low">low</button>
-          </div>
           <div class="diff-target">
             <div class="vulnerabilities">
-              <h1>Most Vulnerable Targets</h1>
+              <h1>Recently Scanned API's</h1>
             </div>
             <div class="vulnerabilities">
-              <h1>Top Vulnerabilities</h1>
+              <h1>Endpoints vulnerable to BOLA</h1>
+            </div>
+            <div class="vulnerabilities">
+              <h1>Commonly Flagged Shadow Sensitive Data</h1>
+            </div>
+            <div class="vulnerabilities">
+              <h1>Recently Scanned Endpoints</h1>
             </div>
           </div>
+        </div>
+        <div class="projectOverview">
+          <h1 class="overviewHeading"></h1>
+          <p class="overviewParagraph"></p>
         </div>
       </div>
       <!-- For Targets -->
@@ -212,39 +216,79 @@
           </div>
           <div class="target-form-div">
             <form class="target-form-class" id="targetForm">
-              <label for="targetURL"
-                >Target URL
+              <div class="currentApiOwner">
+                <label for="apiOwnerName"
+                >API Owner Name
                 <input
                   type="text"
-                  placeholder="enter target URL"
+                  placeholder="enter your name"
                   class="input"
-                  id="targetURL"
+                  id="apiOwnerName"
                 />
-              </label>
-              <label for="targetName"
-                >Target Name
+                <label for="apiOwnerEmail"
+                >API Owner Email
                 <input
                   type="text"
-                  placeholder="enter target name"
+                  placeholder="enter your email"
                   class="input"
-                  id="targetName"
+                  id="apiOwnerEmail"
                 />
-              </label>
-              <label for="targetID"
-                >Description
+              </div>
+              <div class="targetApiDetails">
+                <label for="apiName"
+                >API Name
                 <input
                   type="text"
-                  placeholder="describe target API in five words"
+                  placeholder="enter API name"
                   class="input"
-                  id="targetID"
+                  id="apiName"
+                />
+              <label for="apiUrl"
+                >API URL
+                <input
+                  type="text"
+                  placeholder="enter API URL"
+                  class="input"
+                  id="apiUrl"
+                />
+              <label for="apiKey"
+                >API Key
+                <input
+                  type="text"
+                  placeholder="enter API Key"
+                  class="input"
+                  id="apiKey"
                 />
               </label>
-
-              <select name="scan-type" id="scanType">
-                <option value="none">Select Scan Type</option>
-                <option value="scan">Full Scan</option>
-                <option value="scan">Half Scan</option>
-                <option value="scan">Scheduled Scan</option>
+              </label>
+              <label for="apiDescription"
+                >API Description
+                <input
+                  type="text"
+                  placeholder="describe target API in few words"
+                  class="input"
+                  id="apiDescription"
+                />
+              </label>
+              </div>
+              <div class="sensitiveDataCollection">
+                <label for="apiSpecificData"
+                >API Description
+                <input
+                  type="text"
+                  placeholder="Enter 10 sensitive keywords for use to scan API"
+                  class="input"
+                  id="apiSpecificData"
+                />
+                <label for="apiSpecificData"
+                >API Description
+                <input
+                  type="text"
+                  placeholder="Enter 3 unique ID's for use to scan API"
+                  class="input"
+                  id="apiSpecificData"
+                />
+              </div>
               </select>
 
               <button type="submit" class="create-scan">Create Scan</button>

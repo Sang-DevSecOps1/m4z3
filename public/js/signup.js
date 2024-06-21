@@ -92,7 +92,7 @@ signUpForm.addEventListener("submit", (e) => {
     };
 
     try {
-      const response = await fetch(`http://localhost:1000/auth/api/signup`, {
+      const response = await fetch(`http://localhost:3000/auth/api/signup`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

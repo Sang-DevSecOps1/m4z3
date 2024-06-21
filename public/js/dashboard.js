@@ -33,3 +33,34 @@ userVulnerabilities.addEventListener("click", () => {
   scans.style.display = "none";
 });
 
+// Set Slides for Overview of Project 
+const slidesDiv = document.querySelector(".overviewHeading");
+const slidesInfo = [
+  {
+    writeup1: "What is Broken Object Level Authorisation (BOLA)?",
+    writeup1: "",
+  },
+  {
+    writeup1: "What are Shadow Sensitive Data?",
+    writeup1: "",
+  },
+  {
+    writeup1: "Sample Video to perform BOLA Scan?",
+    writeup1: "",
+  },
+  {
+    writeup1: "Sample Video to perform Shadow Sensitive Data Scan?",
+    writeup1: "",
+  },
+];
+
+let currentIndex = 0;
+
+function changeSlidesInfo() {
+  const currentSlide = slidesInfo[currentIndex];
+  slidesDiv.style.slidesInfo = currentSlide.color;
+  currentIndex = (currentIndex + 1) % slidesInfo.length;
+}
+
+// changeSlidesInfo;
+// setInterval(changeSlidesInfo, 7000);
