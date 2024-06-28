@@ -6,7 +6,7 @@ const dotenv = require("dotenv");
 const bodyParser = require("body-parser");
 const morgan = require("morgan");
 const cors = require("cors");
-const { authRoutes, userRoutes } = require("./routes/index");
+const { authRoutes, userRoutes, apiScans} = require("./routes/index");
 app.use(express.static("./public"));
 
 dotenv.config();
@@ -36,6 +36,7 @@ app.use(
 
 app.use("/auth", authRoutes);
 app.use("/users", userRoutes);
+app.use("/api", apiScans);
 
 // Parsing all 404 requests
 app.use((req, res, next) => {

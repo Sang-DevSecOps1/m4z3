@@ -19,7 +19,6 @@
         <img src="../favicon.ico" alt="" />
         Maze</a
       >
-      <!-- <span class="material-symbols-outlined logo"> wifi_tethering </span> -->
     </div>
     <input
       type="text"
@@ -37,6 +36,7 @@
       </button>
     </div>
   </nav>
+
   <body>
     <div class="dashboard">
       <div class="dashboard-links">
@@ -138,7 +138,9 @@
                   </span>
                 </button>
                 <div class="total">
-                  <p class="total-paragraph">Total Flagged Shadow Sensitive Data </p>
+                  <p class="total-paragraph">
+                    Total Flagged Shadow Sensitive Data
+                  </p>
                   <p class="total-number">0</p>
                 </div>
               </div>
@@ -212,82 +214,197 @@
           </div>
           <div class="target-form-div">
             <form class="target-form-class" id="targetForm">
-              <div class="currentApiOwner">
+              <!-- To collect API Owner Data -->
+              <div class="currentApiOwner" id="currentApiOwner">
+                <h3>Enter your Details</h3>
                 <label for="apiOwnerName"
-                >API Owner Name
-                <input
-                  type="text"
-                  placeholder="enter your name"
-                  class="input"
-                  id="apiOwnerName"
-                />
+                  >API Owner Name
+                  <input
+                    type="text"
+                    placeholder="enter your name"
+                    class="input"
+                    id="apiOwnerName"
+                  />
+                </label>
                 <label for="apiOwnerEmail"
-                >API Owner Email
-                <input
-                  type="text"
-                  placeholder="enter your email"
-                  class="input"
-                  id="apiOwnerEmail"
-                />
+                  >API Owner Email
+                  <input
+                    type="text"
+                    placeholder="enter your email"
+                    class="input"
+                    id="apiOwnerEmail"
+                  />
+                </label>
+                <button
+                  type="button"
+                  class="target-credentials-next-button"
+                  id="target-credentials-next-button1"
+                >
+                  Next
+                </button>
               </div>
-              <div class="targetApiDetails">
-                <label for="apiName"
-                >API Name
-                <input
-                  type="text"
-                  placeholder="enter API name"
-                  class="input"
-                  id="apiName"
-                />
-              <label for="apiUrl"
-                >API URL
-                <input
-                  type="text"
-                  placeholder="enter API URL"
-                  class="input"
-                  id="apiUrl"
-                />
-              <label for="apiKey"
-                >API Key
-                <input
-                  type="text"
-                  placeholder="enter API Key"
-                  class="input"
-                  id="apiKey"
-                />
-              </label>
-              </label>
-              <label for="apiDescription"
-                >API Description
-                <input
-                  type="text"
-                  placeholder="describe target API in few words"
-                  class="input"
-                  id="apiDescription"
-                />
-              </label>
-              </div>
-              <div class="sensitiveDataCollection">
-                <label for="apiSpecificData"
-                >API Description
-                <input
-                  type="text"
-                  placeholder="Enter 10 sensitive keywords for use to scan API"
-                  class="input"
-                  id="apiSpecificData"
-                />
-                <label for="apiSpecificData"
-                >API Description
-                <input
-                  type="text"
-                  placeholder="Enter 3 unique ID's for use to scan API"
-                  class="input"
-                  id="apiSpecificData"
-                />
-              </div>
-              </select>
 
-              <button type="submit" class="create-scan">Create Scan</button>
+              <!-- To collect API Description Data -->
+              <div class="targetApiDetails" id="targetApiDetails">
+                <h3>API Owner Details</h3>
+                <label for="apiName"
+                  >API Name
+                  <input
+                    type="text"
+                    placeholder="enter API name"
+                    class="input"
+                    id="apiName"
+                  />
+                </label>
+                <label for="apiDescription"
+                  >API Description
+                  <input
+                    type="text"
+                    placeholder="describe target API in few words"
+                    class="input"
+                    id="apiDescription"
+                  />
+                </label>
+                <div class="target-buttons">
+                  <button
+                    type="button"
+                    class="target-credentials-next-button-two-previous"
+                    id="currentApiOwnerForm"
+                  >
+                    Previous
+                  </button>
+                  <button
+                    type="button"
+                    class="target-credentials-next-button-two"
+                    id="target-credentials-next-button2"
+                  >
+                    Next
+                  </button>
+                </div>
+              </div>
+
+              <!-- To collect the sensitive data for API scanning -->
+              <div
+                class="sensitiveAPIDataCollection"
+                id="sensitiveAPIDataCollection"
+              >
+                <h3>API Params</h3>
+                <label for="apiKey"
+                  >API Key
+                  <input
+                    type="text"
+                    placeholder="enter API Key"
+                    class="input"
+                    id="apiKey"
+                  />
+                </label>
+                <label for="apiURL"
+                  >API URL
+                  <input
+                    type="text"
+                    placeholder="enter API URL"
+                    class="input"
+                    id="apiURL"
+                  />
+                </label>
+                <div class="target-buttons">
+                  <button
+                    type="button"
+                    class="target-credentials-next-button-three-previous"
+                    id="targetApiDetailsForm"
+                  >
+                    Previous
+                  </button>
+                  <button
+                    type="button"
+                    class="target-credentials-next-button-three"
+                    id="target-credentials-next-button3"
+                  >
+                    Next
+                  </button>
+                </div>
+              </div>
+
+              <!-- To collect API Parameters for scan -->
+              <div class="api-scan-id-div" id="api-scan-id-div">
+                <h3>API Unique IDs</h3>
+                <label for="uniqueIDs"
+                  >Unique Identifiers for BOLA Scan
+                  <input
+                    type="text"
+                    placeholder="Input Unique ID 1"
+                    class="input"
+                    id="uniqueIdOne"
+                  />
+                  <input
+                    type="text"
+                    placeholder="Input Unique ID 2"
+                    class="input"
+                    id="uniqueIdTwo"
+                  />
+                </label>
+                <div class="target-buttons">
+                  <button
+                    type="button"
+                    class="target-credentials-next-button-four-previous"
+                    id="sensitiveAPIDataCollectionForm"
+                  >
+                    Previous
+                  </button>
+                  <button
+                    type="button"
+                    class="target-credentials-next-button-four"
+                    id="target-credentials-next-button4"
+                  >
+                    Next
+                  </button>
+                </div>
+              </div>
+
+              <!-- For Unique Sensitive Keywords for Shadow sensitive data Scan  -->
+              <div
+                class="api-shadow-sensitive-scan-params-div"
+                id="api-shadow-sensitive-scan-params-div"
+              >
+                <h3>Sensitive Keywords for SSD Scan</h3>
+                <label for="api-shadow-sensitive-scan-params"
+                  >Fill Sensitive Data for SSD Scan
+                  <input
+                    type="text"
+                    placeholder="Input keyword 1"
+                    class="input"
+                    id="apiKeywords1"
+                  />
+                  <input
+                    type="text"
+                    placeholder="Input keyword 2"
+                    class="input"
+                    id="apiKeywords2"
+                  />
+                  <input
+                    type="text"
+                    placeholder="Input keyword 3"
+                    class="input"
+                    id="apiKeywords3"
+                  />
+                </label>
+                <div class="target-buttons">
+                  <button
+                    type="button"
+                    class="target-credentials-next-button-four-previous"
+                    id="api-scan-id-div-form"
+                  >
+                    Previous
+                  </button>
+                  <button
+                    type="submit"
+                    class="create-scan"
+                    id="create-scan-button"
+                  >
+                    Create Scan
+                  </button>
+                </div>
+              </div>
             </form>
           </div>
         </div>

@@ -294,10 +294,11 @@ body {
   display: grid;
   grid-template-columns: auto auto;
   background-color: #011627;
-  width: 100%;
+  width: 50%;
   height: 100%;
-  margin-top: 2%;
-  /* margin-left: 30%; */
+  margin-top: 7%;
+  /* border: 1px solid red; */
+  margin-left: 26%;
 }
 .target-form-class label {
   margin-left: 12%;
@@ -314,29 +315,95 @@ body {
   margin-left: 3%;
   border: none;
   border-bottom: 1px solid white;
-  color: white;
-  font-size: 12px;
+  color: rebeccapurple;
+  font-size: 15px;
 }
 .target-form-class input::placeholder {
-  font-size: 10px;
+  font-size: 15px;
   margin: 0;
   padding: 0;
   color: grey;
 }
-select {
-  border: none;
+.create-scan {
   margin-top: 5%;
   width: 10vw;
   height: 5vh;
-  margin-left: 15%;
-  border-radius: 8px;
-}
-.create-scan {
-  margin-top: 7%;
-  width: 30vw;
-  height: 5vh;
   color: white;
   background-color: rebeccapurple;
+  border: none;
+  font-size: 15px;
+}
+.target-form-class .targetApiDetails,
+.sensitiveAPIDataCollection {
+  display: none;
+}
+.target-form-class h3 {
+  color: aliceblue;
+  text-align: center;
+  margin-top: 5%;
+  font-size: 25px;
+}
+.target-buttons {
+  display: flex;
+  padding: 20px;
+  width: 100%;
+}
+.target-form-class .target-credentials-next-button-one {
+  height: 5vh;
+  width: 10vw;
+  color: aliceblue;
+  margin-left: 35%;
+  margin-top: 5%;
+  margin-bottom: 10%;
+  color: black;
+  font-size: 18px;
+}
+.target-form-class .target-credentials-next-button-two,
+.target-credentials-next-button-three,
+.target-credentials-next-button-four {
+  height: 5vh;
+  width: 10vw;
+  color: aliceblue;
+  margin-top: 5%;
+  margin-bottom: 10%;
+  color: black;
+  font-size: 18px;
+}
+.target-form-class .target-credentials-next-button-two-previous,
+.target-credentials-next-button-three-previous,
+.target-credentials-next-button-four-previous {
+  height: 5vh;
+  width: 10vw;
+  color: aliceblue;
+  margin-top: 5%;
+  margin-bottom: 10%;
+  color: black;
+  margin-left: 10%;
+  font-size: 18px;
+}
+.currentApiOwner,
+.targetApiDetails,
+.sensitiveAPIDataCollection,
+.api-scan-id-div,
+.api-shadow-sensitive-scan-params-div {
+  width: 100%;
+  margin-left: 18%;
+  height: 100%;
+}
+.targetApiDetails,
+.sensitiveAPIDataCollection,
+.api-scan-id-div,
+.api-shadow-sensitive-scan-params-div {
+  display: none;
+}
+.currentApiOwner .target-credentials-next-button {
+  width: 10vw;
+  margin-top: 5%;
+  margin-bottom: 10%;
+  height: 5vh;
+  margin-left: 35%;
+  color: black;
+  background-color: aliceblue;
   border: none;
   font-size: 15px;
 }
@@ -346,7 +413,6 @@ select {
   height: 100%;
 }
 .scan .scans {
-  /* border: 1px solid red; */
   color: red;
   font-weight: bold;
   font-size: 20px;
