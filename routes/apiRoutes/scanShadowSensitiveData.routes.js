@@ -5,4 +5,5 @@ const {
   saveApiCredentials,
 } = require("../../controllers/scanShadowSensitiveData.controllers");
 
+router.post("/api/saveAPIData", saveApiCredentials);
 module.exports = router;
