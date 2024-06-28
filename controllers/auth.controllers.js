@@ -39,7 +39,7 @@ exports.signUpUser = async (req, res) => {
 exports.logInUser = async (req, res) => {
   try {
     const { user_email, password } = req.body;
-    const user = await User.findOne({ user_email }, { password: 1 });
+    const user = await User.findOne({ user_email }, { _id: 1, password: 1 });
 
     if (!user) {
       return res.status(404).json({ Message: "User not found" });
@@ -54,7 +54,7 @@ exports.logInUser = async (req, res) => {
 
         return res.status(200).json({
           Message: "User Logged in Sucessfully",
-          userDetails: userToSend,
+          userDetails: { user_email, password, user_id: user._id },
         });
         // .cookie("accessToken", userToken, {
         //   httpOnly: true,
@@ -81,4 +81,3 @@ exports.logout = async (req, res) => {
     .status(200)
     .send("Logged out successfully.");
 };
-

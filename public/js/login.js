@@ -24,15 +24,20 @@ async function userLogin() {
       body: JSON.stringify(credentials),
     });
 
+
     if (response.status === 200) {
       const loggedUser = await response.json();
       alert("You have successfully logged in.");
       window.location = "../views/dashboard.html";
 
-      sessionStorage.setItem("email", user_email);
-      sessionStorage.setItem("password", password);
-      sessionStorage.setItem("user_id", user_id);
-    }
+      const userId = loggedUser.userDetails.user_id;
+      const userEmail = loggedUser.userDetails.user_email;
+      const userPassword = loggedUser.userDetails.password;
+
+      sessionStorage.setItem("user_id", userId);
+      sessionStorage.setItem("user_email", userEmail);
+      sessionStorage.setItem("password", userPassword);
+    };
   } catch (error) {
     console.log(error, "An error occurred while logging in account.");
   }

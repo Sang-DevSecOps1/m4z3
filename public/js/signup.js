@@ -119,9 +119,6 @@ signUpForm.addEventListener("submit", (e) => {
         const password = newUser.password;
         const user_id = newUser.user_id;
 
-        sessionStorage.setItem("name", userName);
-        sessionStorage.setItem("email", userEmail);
-        sessionStorage.setItem("password", password);
         sessionStorage.setItem("user_id", user_id);
       }
     } catch (error) {
