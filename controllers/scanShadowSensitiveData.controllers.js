@@ -3,6 +3,9 @@ const sensitiveKeywords = require("../models/keywords.models");
 const uniqueIds = require("../models/uniqueIds.models");
 const handleErrors = require("../utilities/handleErrors");
 
+const axios = require("axios");
+
+// To collect the basic Auth-N and Auth-Z credentials for the API to be scanned and its Owner
 exports.saveApiCredentials = async (req, res) => {
   try {
     const {
@@ -29,6 +32,8 @@ exports.saveApiCredentials = async (req, res) => {
     console.log(error);
   }
 };
+
+// To collect sensitive keywords for the shadow sensitive scan
 exports.collectApiSensitiveKeywords = async (req, res) => {
   try {
     const { user_id, apiKeyword1, apiKeyword2, apiKeyword3 } = req.body;
@@ -47,6 +52,8 @@ exports.collectApiSensitiveKeywords = async (req, res) => {
     console.log(error);
   }
 };
+
+// To collect the unque Ids for performing the BOLA scan
 exports.collectUniqueIds = async (req, res) => {
   try {
     const { user_id, uniqueId1, uniqueId2 } = req.body;
@@ -61,6 +68,33 @@ exports.collectUniqueIds = async (req, res) => {
       Message: "API unique Identifiers collected and stored successfully",
       userData: collectUniqueId,
     });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+// To retrieve all the needed data from the databases for authentication and scans
+exports.fetchUserApiDetails = async (req, res) => {
+  try {
+    const user_id = req.params.user_id;
+
+    const apiDetails = await api.findOne({ user_id: user_id });
+    const keywords = await sensitiveKeywords.findOne({ user_id: user_id });
+    const uniqueId = await uniqueIds.findOne({ user_id: user_id });
+
+    if (!apiDetails || !keywords || !uniqueId) {
+      return "Sorry, couldn't find this user in any of our databases";
+    } else {
+      return res.status(200).send({
+        apiKey1: apiDetails.apiKey,
+        apiUrl: apiDetails.apiURL,
+        apiKeyword1: keywords.apiKeyword1,
+        apiKeyword2: keywords.apiKeyword2,
+        apiKeyword3: keywords.apiKeyword3,
+        apiIdentifier1: uniqueId.uniqueId1,
+        apiIdentifier2: uniqueId.uniqueId2,
+      });
+    }
   } catch (error) {
     console.log(error);
   }

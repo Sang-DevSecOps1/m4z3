@@ -2,6 +2,11 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const sensitiveKeywordsSchema = new Schema({
+  user_id: {
+    type: String,
+    required: true,
+    unique: true,
+  },
   apiKeyword1: {
     type: String,
     required: true,
@@ -19,7 +24,8 @@ const sensitiveKeywordsSchema = new Schema({
   },
 });
 
-
-const sensitiveKeywords = mongoose.model("sensitive-keyword", sensitiveKeywordsSchema);
+const sensitiveKeywords = mongoose.model(
+  "sensitive-keyword",
+  sensitiveKeywordsSchema
+);
 module.exports = sensitiveKeywords;
-
