@@ -36,32 +36,7 @@ const apiSchema = new Schema({
     type: String,
     required: true,
     unique: true,
-  },
-  uniqueIdOne: {
-    type: String,
-    required: true,
-    unique: true,
-  },
-  uniqueIdTwo: {
-    type: String,
-    required: true,
-    unique: true,
-  },
-  apiKeywords1: {
-    type: String,
-    required: true,
-    unique: true,
-  },
-  apiKeywords2: {
-    type: String,
-    required: true,
-    unique: true,
-  },
-  apiKeywords3: {
-    type: String,
-    required: true,
-    unique: true,
-  },
+  }
 });
 
 const api = mongoose.model("api", apiSchema);

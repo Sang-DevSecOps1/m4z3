@@ -6,7 +6,7 @@ const dotenv = require("dotenv");
 const bodyParser = require("body-parser");
 const morgan = require("morgan");
 const cors = require("cors");
-const { authRoutes, userRoutes, apiScans} = require("./routes/index");
+const { authRoutes, userRoutes, apiScans } = require("./routes/index");
 app.use(express.static("./public"));
 
 dotenv.config();
