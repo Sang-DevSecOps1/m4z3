@@ -84,18 +84,40 @@ exports.fetchUserApiDetails = async (req, res) => {
 
     if (!apiDetails || !keywords || !uniqueId) {
       return "Sorry, couldn't find this user in any of our databases";
-    } else {
-      return res.status(200).send({
-        apiKey1: apiDetails.apiKey,
-        apiUrl: apiDetails.apiURL,
-        apiKeyword1: keywords.apiKeyword1,
-        apiKeyword2: keywords.apiKeyword2,
-        apiKeyword3: keywords.apiKeyword3,
-        apiIdentifier1: uniqueId.uniqueId1,
-        apiIdentifier2: uniqueId.uniqueId2,
+    } 
+    else {
+      const headers = {
+        Authorization: `Bearer ${apiDetails.apiKey}`,
+        "Content-Type": "application/json",
+      };
+
+      const response = await axios.get(`${apiDetails.apiURL}`, { headers });
+
+      const apiData = response.data;
+      const foundKeywords = {};
+
+      keywords.forEach((keyword) => {
+        if (apiData.includes(keyword)) {
+          if (!foundKeywords[keyword]) {
+            foundKeywords[keyword] = [];
+          }
+          foundKeywords[keyword].push(data[keyword]);
+        }
       });
+
+      return foundKeywords;
     }
   } catch (error) {
     console.log(error);
   }
 };
+
+// return res.status(200).send({
+//   apiKey: apiDetails.apiKey,
+//   apiUrl: apiDetails.apiURL,
+//   apiKeyword1: keywords.apiKeyword1,
+//   apiKeyword2: keywords.apiKeyword2,
+//   apiKeyword3: keywords.apiKeyword3,
+//   apiIdentifier1: uniqueId.uniqueId1,
+//   apiIdentifier2: uniqueId.uniqueId2,
+// });

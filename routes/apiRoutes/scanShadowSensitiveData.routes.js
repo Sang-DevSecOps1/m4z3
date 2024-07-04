@@ -5,7 +5,7 @@ const {
   saveApiCredentials,
   collectApiSensitiveKeywords,
   collectUniqueIds,
-  fetchUserApiDetails
+  fetchUserApiDetails,
 } = require("../../controllers/scanShadowSensitiveData.controllers");
 
 router.post("/api/save-api-credentials", saveApiCredentials);
