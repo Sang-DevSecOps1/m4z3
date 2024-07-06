@@ -32,18 +32,23 @@ const apiSchema = new Schema({
     required: true,
     unique: true,
   },
-  apiURL: {
+  apiEndpointURL: {
     type: String,
     required: true,
     unique: true,
-  }
+  },
+  hostURL: {
+    type: String,
+    required: true,
+    unique: true,
+  },
 });
 
 const api = mongoose.model("api", apiSchema);
 module.exports = api;
 
-
 // {
+// 17138e27c-5e81-4118-9887-b48b02441a44
 //   "user_id": "5fe7a33f-8448-4d80-b1d3-ed3d534a5174",
 //   "apiOwnerName": "Sang David",
 //   "apiOwnerEmail": "sang@gmail.com",
