@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../public/favicon.ico"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../../public/favicon.ico"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../../public/favicon.ico"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link rel="stylesheet" href="../../public/css/technicalReport.css" />
+    <title>Technical Report</title>
+  </head>
+  <body>
+    <div class="apiIntroductionDetailsDiv">
+      <div class="headingDiv">
+        <h1>A Technical Report for BOLA and SSD scans</h1>
+        <p class="headingParagraph">
+          This is a report displaying the scan results from a concluded and
+          successful scan of Broken Object Level and Shadow Sensitive Data Scan
+          by M4z3 on the Provided API.
+        </p>
+        <p class="targetAudience">
+          The Target Audience for this report include the IT or Technical Team
+          handling the build, developmet, security and Operations of the scanned
+          API in question.
+          <b>Note:</b> That this report is not for executives or individuals
+          without the authority to access this document or the expertise,
+          knoledge and technical know-how to process the content of this Report.
+          Individuals who fall in this category should access the executive
+          report as that will provide a better understanding of the technical
+          contents display in this report.
+        </p>
+      </div>
+      <div class="timeAndDateInfoDiv">
+        <p class="time"></p>
+        <p class="date"></p>
+      </div>
+      <div class="apiDetailsDiv">
+        <p class="apiOwnerName"></p>
+        <p class="apiOwnerEmail"></p>
+        <p class="apiName"></p>
+        <p class="apiDescription"></p>
+        <p class="apiURL"></p>
+        <p class="apiKeywords"></p>
+        <p class="apiIdentifiers"></p>
+        <p class="scanType"></p>
+        <p class="durationOfScan"></p>
+      </div>
+    </div>
+
+    <div class="reportBreakdownDiv">
+      <div class="bolaReportBreakdown">
+        <h3>Breakdown Report for Broken Object Level Authorization Scan</h3>
+        <div class="bolaScanDiv">
+          <div class="bolaScanDetailsDiv">
+            <p class="isVulnrableToBola"></p>
+            <p class="endpointScanned"></p>
+            <p class="apiIdentifiersUsed one"></p>
+            <p class="apiIdentifiersUsed two"></p>
+          </div>
+
+          <div class="bolaRequestsAndResponseDiv">
+            <p class="bolaRequest"></p>
+            <p class="bolaResponse"></p>
+            <p class="bolaResponseStatusCode"></p>
+            <p class="bolaStatusConclusion"></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="ssdReportBreakdown">
+        <h3>Breakdown Report for Shadow Sensitive Data Scan</h3>
+        <div class="ssdScanDiv">
+          <div class="ssdScanDetailsDiv">
+            <p class="isVulnrableToSsd"></p>
+            <p class="keywordsScanned"></p>
+            <p class="keywordsFlagged"></p>
+            <p class="keywordsNotFlagged"></p>
+          </div>
+
+          <div class="ssdRequestsAndResponseDiv">
+            <p class="ssdRequest"></p>
+            <p class="ssdResponse"></p>
+            <p class="ssdResponseStatusCode"></p>
+            <p class="ssdStatusConclusion"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Div for Impact of neglecting both BOLA and SSD in API -->
+    <div class="impact">
+      <div class="bolaImpactDiv">
+        <h3>Impact of BOLA Vulnerability to Application Logic</h3>
+        <p class="bolaImpact"></p>
+      </div>
+      <div class="ssdImpactDiv">
+        <h3>Impact of neglecting SSD in API's</h3>
+        <p class="ssdImpact"></p>
+      </div>
+    </div>
+
+    <!-- Recommendations for both against scan results obtained -->
+    <div class="recommendation">
+      <div class="bolaReportRecommendationDiv">
+        <h3>Recommendation/Mitigation Strategies for BOLA Vulnerability</h3>
+        <p class="bolaRecommendation"></p>
+      </div>
+      <div class="ssdReportRecommendationDiv">
+        <h3>
+          Recommendation/Mitigation Strategies for reduced exposure of SSD
+        </h3>
+        <p class="ssdRecommendation"></p>
+      </div>
+    </div>
+
+    <footer><p class="copywright">M4z3 Copywright 2024</p></footer>
+  </body>
+</html>
