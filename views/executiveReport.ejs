@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../public/favicon.ico"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../../public/favicon.ico"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../../public/favicon.ico"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link rel="stylesheet" href="../css/executiveReport.css" />
+    <title>Executive Report</title>
+  </head>
+  <body>
+    <div class="apiIntroductionDetails">
+      <div class="headingDiv">
+        <h1>A Executive Report for BOLA and SSD scans</h1>
+        <p class="headingParagraph">
+          This is a report displaying the scan results from a concluded and
+          successful scan of Broken Object Level and Shadow Sensitive Data Scan
+          by M4z3 on the Provided API.
+        </p>
+        <p class="targetAudience">
+          The Target audience for this report includes IT personnels,
+          executives, board memebers and individuals without the knowledge and
+          technical know-how of what is in the Technical report.
+        </p>
+      </div>
+      <div class="timeAndDateInfoDiv">
+        <p class="time">Time: <%= scanResults.apiScanTime %></p>
+        <p class="date">Date: <%= scanResults.apiScanTime %></p>
+      </div>
+      <div class="apiDetailsDiv">
+        <p class="apiOwnerName">
+          API Owner Name: <%= scanResults.apiOwnerName %>
+        </p>
+        <p class="apiOwnerEmail">
+          API Owner Email: <%= scanResults.apiOwnerEmail %>
+        </p>
+        <p class="apiName">API Name: <%= scanResults.apiName %></p>
+        <p class="apiDescription">
+          API Description: <%= scanResults.Description %>
+        </p>
+        <p class="apiURL">API ULR: <%= scanResults.apiURL %></p>
+        <p class="apiKeywords">
+          API Sensitive Keywords: <%= scanResults.apiKeywords %>
+        </p>
+        <p class="apiIdentifiers">
+          API Identifiers: <%= scanResults.apiIdentifiers %>
+        </p>
+        <p class="scanType">API Scan Type: <%= scanResults.apiScanType %></p>
+        <p class="durationOfScan">
+          Duration Scan: <%= scanResults.apiScanDuration %>
+        </p>
+      </div>
+    </div>
+
+    <div class="executiveScanResults">
+      <h3>Breakdown Report for both Scans</h3>
+      <div
+        class="executiveIsVulnerableToBolaAndSssd"
+        id="executiveIsVulnerableToBolaAndSssd"
+      >
+        <p class="executiveIsVulnerableToBola" id=""></p>
+        <p class="executiveIsVulnerableToSssd" id=""></p>
+        <p class="executiveSecurityPostureLow" id=""></p>
+        <p class="executiveSecurityPriorityHigh" id=""></p>
+        <p class="executiveCategoryForImediateAction" id=""></p>
+      </div>
+      <div
+        class="executiveIsNotVulnerableToBolaAndSssd"
+        id="executiveIsNotVulnerableToBolaAndSssd"
+      >
+        <p class="executiveIsNotVulnerableToBola" id=""></p>
+        <p class="executiveIsNotVulnerableToSssd" id=""></p>
+        <p class="executiveSecurityPostureHigh" id=""></p>
+        <p class="executiveSecurityPriorityMedium" id=""></p>
+        <p class="executiveCategoryForImediateAction" id=""></p>
+      </div>
+
+      <div class="executiveImpact">
+        <h3>Impact of both vulnerabilities to Business Logic and Continuity</h3>
+        <p class="executiveBolaImpactReview" id=""></p>
+        <p class="executiveSssdImpactReview" id=""></p>
+      </div>
+      
+      <div class="executiveRecommendation">
+        <h3>Recommendation/Mitigation Strategies</h3>
+        <p class="executiveBolaRecommendation" id=""></p>
+        <p class="executiveSsdRecommendation" id=""></p>
+      </div>
+    </div>
+
+    <footer><p class="copywright">M4z3 Copywright 2024</p></footer>
+  </body>
+</html>

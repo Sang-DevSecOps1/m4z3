@@ -2,6 +2,7 @@ const api = require("../models/targetDetails.models");
 const sensitiveKeywords = require("../models/keywords.models");
 const uniqueIds = require("../models/uniqueIds.models");
 const handleErrors = require("../utilities/handleErrors");
+const app = require("express");
 
 const axios = require("axios");
 const Fuse = require("fuse.js");
@@ -103,13 +104,16 @@ exports.fetchUserApiDetailsAndScanForShadowSensitiveData = async (req, res) => {
     const keywords = await sensitiveKeywords.findOne({ user_id: user_id });
     const uniqueId = await uniqueIds.findOne({ user_id: user_id });
 
+    // Check if the user_id or not
     if (!apiDetails || !keywords || !uniqueId) {
       return "Sorry, couldn't find this user in any of our databases";
     } else {
       const apiKeyHeader = apiDetails.apiKey;
 
+      // API Key header
       const headers = apiKeyHeader;
 
+      // API URL and the axios querying the API
       const apiURL = `${apiDetails.hostURL}${apiDetails.apiEndpointURL}`;
       const response = await axios.get(apiURL, { headers });
 
@@ -120,12 +124,13 @@ exports.fetchUserApiDetailsAndScanForShadowSensitiveData = async (req, res) => {
       // Initialize Fuse.js with collected values
       const fuse = new Fuse(apiDataValues, {
         includeScore: true,
-        threshold: 0.3, // Adjust the threshold as needed
+        threshold: 0.3,
       });
 
       const foundKeywords = {};
       const notFoundKeywords = {};
 
+      // Scan for the array of keywords in the sensitveKeywords collection
       apiKeywords.forEach((keyword) => {
         const result = fuse.search(keyword);
         if (result.length > 0) {
@@ -134,14 +139,41 @@ exports.fetchUserApiDetailsAndScanForShadowSensitiveData = async (req, res) => {
           notFoundKeywords[keyword] = false;
         }
       });
-      return res.status(200).json({
-        "Found Keywords": foundKeywords,
-        "Not Found Keywords": notFoundKeywords,
-        Message:
-          "This scan for Shadow sensitive data in your API's was successful",
-      });
+
+      // Objects for exporting for Report
+      exports.isVulnerableScanReport = {
+        Total_Keywords_Scanned: keywords.apiKeywords,
+        Flagged_Keywords: foundKeywords,
+        Unflagged_Keywords: notFoundKeywords,
+        Status_code: 200,
+        Message: "This API is vulnerable to Shadow Sensitive Data Exposure",
+        Request: "",
+        Response: "",
+      };
+
+      exports.isNotVulnerableScanReport = {
+        Total_Keywords_Scanned: keywords.apiKeywords,
+        Flagged_Keywords: foundKeywords,
+        Unflagged_Keywords: notFoundKeywords,
+        Status_code: 200,
+        Message: "This API is NOT vulnerable to Shadow Sensitive Data Exposure",
+        Request: "",
+        Response: "",
+      };
+
+      return res.status(200).json(
+        (scanReport = {
+          Total_Keywords_Scanned: keywords.apiKeywords,
+          Flagged_Keywords: foundKeywords,
+          Unflagged_Keywords: notFoundKeywords,
+          Status_code: 200,
+          Message:
+            "This scan for Shadow sensitive data in your API's was successful",
+        })
+      );
     }
 
+    // Commented code for Includes for scanning for SSD
     // const apiDataString = JSON.stringify(apiData);
     // console.log(apiData, apiDataString);
 

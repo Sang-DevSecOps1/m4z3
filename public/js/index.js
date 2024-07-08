@@ -10,7 +10,7 @@ const background = [
     color: "rgb(0, 0, 43)",
     // writeup1: "Without secure APIs, rapid innovation would be impossible",
     // writeup2: "Get your APIs Scanned to avoid business downtime",
-  },
+  }
 ];
 
 let currentIndex = 0;
