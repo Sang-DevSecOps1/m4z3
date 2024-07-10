@@ -6,19 +6,19 @@
     <link
       rel="apple-touch-icon"
       sizes="180x180"
-      href="../../public/favicon.ico"
+      href="../public/favicon.ico"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="../../public/favicon.ico"
+      href="../public/favicon.ico"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="16x16"
-      href="../../public/favicon.ico"
+      href="../public/favicon.ico"
     />
     <link
       rel="stylesheet"
@@ -29,17 +29,16 @@
   </head>
   <body>
     <div class="apiIntroductionDetailsDiv">
+      <h1><u>A Technical Report for BOLA and SSD scans</u></h1>
       <div class="headingDiv">
-        <h1>A Technical Report for BOLA and SSD scans</h1>
         <p class="headingParagraph">
           This is a report displaying the scan results from a concluded and
           successful scan of Broken Object Level and Shadow Sensitive Data Scan
-          by M4z3 on the Provided API.
-        </p>
-        <p class="targetAudience">
-          The Target Audience for this report include the IT or Technical Team
-          handling the build, developmet, security and Operations of the scanned
-          API in question.
+          by M4z3 on the Provided API. The Target Audience for this report
+          include the IT or Technical Team handling the build, developmet,
+          security and Operations of the scanned API in question.
+        </p> <br>
+        <p class="note">
           <b>Note:</b> That this report is not for executives or individuals
           without the authority to access this document or the expertise,
           knoledge and technical know-how to process the content of this Report.
@@ -49,9 +48,10 @@
         </p>
       </div>
       <div class="timeAndDateInfoDiv">
-        <p class="time">Time: <%= scanResults.apiScanTime %></p>
-        <p class="date">Date: <%= scanResults.apiScanTime %></p>
+        <p class="timeDateParagraph">Time/Date</p>
+        <p class="time">Time & Date <%= scanResults.apiScanTime %></p>
       </div>
+      <p class="basicDetailsParagraph">Basic API Details</p>
       <div class="apiDetailsDiv">
         <p class="apiOwnerName">
           API Owner Name: <%= scanResults.apiOwnerName %>
@@ -78,9 +78,8 @@
     </div>
 
     <div class="reportBreakdownDiv">
+      <h3>Breakdown Report for Broken Object Level Authorization Scan</h3>
       <div class="bolaReportBreakdown">
-        <h3>Breakdown Report for Broken Object Level Authorization Scan</h3>
-        <div class="bolaScanDiv">
           <div class="vulnerableToBolaScanDetailsDiv">
             <p class="isVulnrableToBola"></p>
             <p class="endpointScanned"></p>
@@ -100,7 +99,7 @@
             <p class="bolaStatusConclusion"></p>
           </div>
         </div>
-      </div>
+    </div>
 
       <div class="ssdReportBreakdown">
         <h3>Breakdown Report for Shadow Sensitive Data Scan</h3>
@@ -110,7 +109,7 @@
             id="vulnerableToSsdScanDetailsDiv"
           >
             <p class="isVulnrableToSsd">
-              isVulnerableToSssd: Yes, API is vulnerable to Shadow Sensitive
+              Message: Yes, API is vulnerable to Shadow Sensitive
               Data Exposure
             </p>
             <p class="keywordsScanned">
@@ -135,14 +134,14 @@
             <p class="ssdStatusConclusion">
               <%=isVulnerableScanReport.Message %>
             </p>
-          </div>
+          </div> <br>
 
           <div
             class="notVulnerableToSsdScanDetailsDiv"
             id="notVulnerableToSsdScanDetailsDiv"
           >
             <p class="isNotVulnrableToSsd">
-              isVulnerableToSssd: No, API is not vulnerable to Shadow Sensitve
+              Mesage: No, API is not vulnerable to Shadow Sensitve
               Data Exposure
             </p>
             <p class="keywordsScanned">

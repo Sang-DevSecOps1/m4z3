@@ -1,0 +1,60 @@
+@import url("https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Roboto+Slab:wght@100..900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  padding: 20px;
+  background-image: linear-gradient(to bottom left, purple, skyblue 40%, purple);
+}
+h1 {
+  margin-top: 1%;
+  text-align: center;
+}
+h3 {
+  text-align: left;
+  padding: 20px;
+}
+.headingDiv {
+  margin-top: 1%;
+  margin-left: 2%;
+  width: 97%;
+  font-size: 18px;
+  margin-bottom: 1%;
+}
+.timeAndDateInfoDiv {
+  font-size: 18px;
+  margin-left: 2%;
+}
+.timeDateParagraph {
+  font-weight: bold;
+}
+.basicDetailsParagraph {
+  margin-top: 2%;
+  font-size: 18px;
+  font-weight: bold;
+  margin-left: 2%;
+}
+.apiDetailsDiv {
+  width: 95%;
+  font-size: 18px;
+  margin-left: 2%;
+  display: grid;
+  grid-template-columns: auto auto;
+}
+.bolaReportBreakdown,
+.ssdScanDiv {
+  margin-left: 2%;
+  font-size: 18px;
+}
+
+.impact, .recommendation {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+footer{
+    text-align: center;
+    font-size: 15px;
+    margin-top: 5%;
+}

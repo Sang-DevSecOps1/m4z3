@@ -1,6 +1,7 @@
 const api = require("../models/targetDetails.models");
 const sensitiveKeywords = require("../models/keywords.models");
 const uniqueIds = require("../models/uniqueIds.models");
+const scanReports = require("../models/report.model");
 const handleErrors = require("../utilities/handleErrors");
 const app = require("express");
 
@@ -114,8 +115,8 @@ exports.fetchUserApiDetailsAndScanForShadowSensitiveData = async (req, res) => {
       const headers = apiKeyHeader;
 
       // API URL and the axios querying the API
-      const apiURL = `${apiDetails.hostURL}${apiDetails.apiEndpointURL}`;
-      const response = await axios.get(apiURL, { headers });
+      const apiUrl = `${apiDetails.hostURL}${apiDetails.apiEndpointURL}`;
+      const response = await axios.get(apiUrl, { headers });
 
       const apiData = response.data;
       const apiKeywords = keywords.apiKeywords;
@@ -140,37 +141,48 @@ exports.fetchUserApiDetailsAndScanForShadowSensitiveData = async (req, res) => {
         }
       });
 
-      // Objects for exporting for Report
-      exports.isVulnerableScanReport = {
-        Total_Keywords_Scanned: keywords.apiKeywords,
-        Flagged_Keywords: foundKeywords,
-        Unflagged_Keywords: notFoundKeywords,
-        Status_code: 200,
-        Message: "This API is vulnerable to Shadow Sensitive Data Exposure",
-        Request: "",
-        Response: "",
-      };
+      if (response.status === 200) {
+        apiScanTime = new Date().toLocaleString();
+        apiOwnerName = `${apiDetails.apiOwnerName}`;
+        apiOwnerEmail = `${apiDetails.apiOwnerEmail}`;
+        apiName = `${apiDetails.apiName}`;
+        apiDescription = `${apiDetails.apiDescription}`;
+        apiURL = `${apiDetails.hostURL}`;
+        apiScanType = "BOLA and SSD Scans";
+        apiScanDuration = "";
+        Total_Keywords_Scanned = keywords.apiKeywords;
+        Flagged_Keywords = foundKeywords;
+        Unflagged_Keywords = notFoundKeywords;
+        Status_code = 200;
+        Message = "This API is vulnerable to Shadow Sensitive Data Exposure";
+        Request = apiUrl;
+        Response = apiData;
 
-      exports.isNotVulnerableScanReport = {
-        Total_Keywords_Scanned: keywords.apiKeywords,
-        Flagged_Keywords: foundKeywords,
-        Unflagged_Keywords: notFoundKeywords,
-        Status_code: 200,
-        Message: "This API is NOT vulnerable to Shadow Sensitive Data Exposure",
-        Request: "",
-        Response: "",
-      };
+        const newScanReport = new scanReports({
+          user_id,
+          apiScanTime,
+          apiOwnerName,
+          apiOwnerEmail,
+          apiName,
+          apiDescription,
+          apiURL,
+          apiScanType,
+          apiScanDuration,
+          Total_Keywords_Scanned,
+          Flagged_Keywords,
+          Unflagged_Keywords,
+          Status_code,
+          Message,
+          Request,
+          Response,
+        });
 
-      return res.status(200).json(
-        (scanReport = {
-          Total_Keywords_Scanned: keywords.apiKeywords,
-          Flagged_Keywords: foundKeywords,
-          Unflagged_Keywords: notFoundKeywords,
-          Status_code: 200,
-          Message:
-            "This scan for Shadow sensitive data in your API's was successful",
-        })
-      );
+        const saveReportData = newScanReport.save();
+
+        return res.status(200).json({ newScanReport });
+      } else {
+        return "Report data has not been saved";
+      }
     }
 
     // Commented code for Includes for scanning for SSD
@@ -190,7 +202,6 @@ exports.fetchUserApiDetailsAndScanForShadowSensitiveData = async (req, res) => {
     //     }
     //   });
     //   return foundKeywords;
-    // }
   } catch (error) {
     console.log(error);
   }
