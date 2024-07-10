@@ -28,85 +28,120 @@
     <title>Executive Report</title>
   </head>
   <body>
-    <div class="apiIntroductionDetails">
-      <div class="headingDiv">
-        <h1>A Executive Report for BOLA and SSD scans</h1>
-        <p class="headingParagraph">
-          This is a report displaying the scan results from a concluded and
-          successful scan of Broken Object Level and Shadow Sensitive Data Scan
-          by M4z3 on the Provided API.
-        </p>
-        <p class="targetAudience">
-          The Target audience for this report includes IT personnels,
-          executives, board memebers and individuals without the knowledge and
-          technical know-how of what is in the Technical report.
-        </p>
+    <div class="body">
+      <div class="apiIntroductionDetailsDiv">
+        <!-- <h1><u>An Executive Report for BOLA and SSD scans</u></h1> -->
+        <div class="timeAndDateInfoDiv">
+          <p class="timeDateParagraph">Time/Date</p>
+          <p class="time">Time & Date: <%= executiveReport.apiScanTime %></p>
+        </div>
+        <p class="basicDetailsParagraph">Basic API Details</p>
+        <div class="apiDetailsDiv">
+          <p class="apiOwnerName">
+            API Owner Name: <%= executiveReport.apiOwnerName %>
+          </p>
+          <p class="apiOwnerEmail">
+            API Owner Email: <%= executiveReport.apiOwnerEmail %>
+          </p>
+          <p class="apiName">API Name: <%= executiveReport.apiName %></p>
+          <p class="apiDescription">
+            API Description: <%= executiveReport.apiDescription %>
+          </p>
+          <p class="apiURL">API URL: <%= executiveReport.apiURL %></p>
+          <p class="apiKeywords">
+            API Sensitive Keywords: <%= executiveReport.Total_Keywords_Scanned
+            %>
+          </p>
+          <p class="apiIdentifiers">
+            API Identifiers: <%= executiveReport.apiIdentifiers %>
+          </p>
+          <p class="scanType">
+            API Scan Type: <%= executiveReport.apiScanType %>
+          </p>
+          <p class="durationOfScan">
+            Duration Scan: <%= executiveReport.apiScanDuration %>
+          </p>
+        </div>
       </div>
-      <div class="timeAndDateInfoDiv">
-        <p class="time">Time: <%= scanResults.apiScanTime %></p>
-        <p class="date">Date: <%= scanResults.apiScanTime %></p>
-      </div>
-      <div class="apiDetailsDiv">
-        <p class="apiOwnerName">
-          API Owner Name: <%= scanResults.apiOwnerName %>
-        </p>
-        <p class="apiOwnerEmail">
-          API Owner Email: <%= scanResults.apiOwnerEmail %>
-        </p>
-        <p class="apiName">API Name: <%= scanResults.apiName %></p>
-        <p class="apiDescription">
-          API Description: <%= scanResults.Description %>
-        </p>
-        <p class="apiURL">API ULR: <%= scanResults.apiURL %></p>
-        <p class="apiKeywords">
-          API Sensitive Keywords: <%= scanResults.apiKeywords %>
-        </p>
-        <p class="apiIdentifiers">
-          API Identifiers: <%= scanResults.apiIdentifiers %>
-        </p>
-        <p class="scanType">API Scan Type: <%= scanResults.apiScanType %></p>
-        <p class="durationOfScan">
-          Duration Scan: <%= scanResults.apiScanDuration %>
-        </p>
-      </div>
-    </div>
 
-    <div class="executiveScanResults">
-      <h3>Breakdown Report for both Scans</h3>
-      <div
-        class="executiveIsVulnerableToBolaAndSssd"
-        id="executiveIsVulnerableToBolaAndSssd"
-      >
-        <p class="executiveIsVulnerableToBola" id=""></p>
-        <p class="executiveIsVulnerableToSssd" id=""></p>
-        <p class="executiveSecurityPostureLow" id=""></p>
-        <p class="executiveSecurityPriorityHigh" id=""></p>
-        <p class="executiveCategoryForImediateAction" id=""></p>
+      <div class="reportBreakdownDiv">
+        <h3>Breakdown Report for Broken Object Level Authorization Scan</h3>
+        <div class="bolaReportBreakdown">
+          <div class="vulnerableToBolaScanDetailsDiv">
+            <p class="isVulnrableToBola"></p>
+            <p class="endpointScanned"></p>
+            <p class="apiIdentifiersUsed one"></p>
+            <p class="bolaRequest"></p>
+            <p class="bolaResponse"></p>
+            <p class="bolaResponseStatusCode"></p>
+            <p class="bolaStatusConclusion"></p>
+          </div>
+          <div class="notVulnerableToBolaScanDetailsDiv">
+            <p class="isVulnrableToBola"></p>
+            <p class="endpointScanned"></p>
+            <p class="apiIdentifiersUsed one"></p>
+            <p class="bolaRequest"></p>
+            <p class="bolaResponse"></p>
+            <p class="bolaResponseStatusCode"></p>
+            <p class="bolaStatusConclusion"></p>
+          </div>
+        </div>
       </div>
-      <div
-        class="executiveIsNotVulnerableToBolaAndSssd"
-        id="executiveIsNotVulnerableToBolaAndSssd"
-      >
+
+      <div class="notVulnerableToSsdScanDetailsDiv">
         <p class="executiveIsNotVulnerableToBola" id=""></p>
         <p class="executiveIsNotVulnerableToSssd" id=""></p>
         <p class="executiveSecurityPostureHigh" id=""></p>
         <p class="executiveSecurityPriorityMedium" id=""></p>
         <p class="executiveCategoryForImediateAction" id=""></p>
       </div>
+      <br />
+      <div class="ssdReportBreakdown">
+        <p class="executiveIsVulnerableToBola" id=""></p>
+        <p class="executiveIsVulnerableToSssd" id=""></p>
+        <p class="executiveSecurityPostureLow" id=""></p>
+        <p class="executiveSecurityPriorityHigh" id=""></p>
+        <p class="executiveCategoryForImediateAction" id=""></p>
+      </div>
 
-      <div class="executiveImpact">
-        <h3>Impact of both vulnerabilities to Business Logic and Continuity</h3>
-        <p class="executiveBolaImpactReview" id=""></p>
-        <p class="executiveSssdImpactReview" id=""></p>
+      <!-- Div for Impact of neglecting both BOLA and SSD in API -->
+      <div class="impact">
+        <div class="bolaImpactDiv">
+          <h3>Impact of BOLA vulnerability to Business Logic and Continuity</h3>
+          <p class="executiveBolaImpactReview" id=""></p>
+          <p class="executiveSssdImpactReview" id=""></p>
+        </div>
+        <div class="ssdImpactDiv">
+          <h3>Impact of neglecting to Business Logic and Continuity</h3>
+          <p class="ssdImpact"></p>
+        </div>
       </div>
-      
-      <div class="executiveRecommendation">
-        <h3>Recommendation/Mitigation Strategies</h3>
-        <p class="executiveBolaRecommendation" id=""></p>
-        <p class="executiveSsdRecommendation" id=""></p>
+
+      <!-- Recommendations for both against scan results obtained -->
+      <div class="recommendation">
+        <div class="bolaReportRecommendationDiv">
+          <h3>Recommendation/Mitigation Strategies for BOLA Vulnerability</h3>
+          <p class="bolaRecommendation"></p>
+        </div>
+        <div class="ssdReportRecommendationDiv">
+          <h3>
+            Recommendation/Mitigation Strategies for reduced exposure of SSD
+          </h3>
+          <p class="ssdRecommendation"></p>
+        </div>
       </div>
+      <footer><p class="copywright">M4z3 Copywright 2024</p></footer>
     </div>
 
-    <footer><p class="copywright">M4z3 Copywright 2024</p></footer>
+    <div class="reportHero">
+      <div class="reportNotice">
+        <h1 class="heroHeading">API SCAN EXECUTIVE REPORT</h1>
+        <p class="heroParagraph">
+          A report for the Executives, Board of Directions, basically for
+          Individuals who lack the technical Know how of the API Structure
+        </p>
+        <p class="heroRoundUp">M4z3 Technical Report</p>
+      </div>
+    </div>
   </body>
 </html>

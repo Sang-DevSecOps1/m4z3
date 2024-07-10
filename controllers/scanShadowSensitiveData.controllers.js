@@ -177,9 +177,9 @@ exports.fetchUserApiDetailsAndScanForShadowSensitiveData = async (req, res) => {
           Response,
         });
 
-        const saveReportData = newScanReport.save();
+        const saveReportData = await newScanReport.save();
 
-        return res.status(200).json({ newScanReport });
+        return res.status(200).json({ newScanReport: newScanReport.Message });
       } else {
         return "Report data has not been saved";
       }

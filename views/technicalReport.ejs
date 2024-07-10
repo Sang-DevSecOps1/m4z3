@@ -28,175 +28,167 @@
     <title>Technical Report</title>
   </head>
   <body>
-    <div class="apiIntroductionDetailsDiv">
-      <h1><u>A Technical Report for BOLA and SSD scans</u></h1>
-      <div class="headingDiv">
-        <p class="headingParagraph">
-          This is a report displaying the scan results from a concluded and
-          successful scan of Broken Object Level and Shadow Sensitive Data Scan
-          by M4z3 on the Provided API. The Target Audience for this report
-          include the IT or Technical Team handling the build, developmet,
-          security and Operations of the scanned API in question.
-        </p> <br>
-        <p class="note">
-          <b>Note:</b> That this report is not for executives or individuals
-          without the authority to access this document or the expertise,
-          knoledge and technical know-how to process the content of this Report.
-          Individuals who fall in this category should access the executive
-          report as that will provide a better understanding of the technical
-          contents display in this report.
-        </p>
-      </div>
-      <div class="timeAndDateInfoDiv">
-        <p class="timeDateParagraph">Time/Date</p>
-        <p class="time">Time & Date <%= scanResults.apiScanTime %></p>
-      </div>
-      <p class="basicDetailsParagraph">Basic API Details</p>
-      <div class="apiDetailsDiv">
-        <p class="apiOwnerName">
-          API Owner Name: <%= scanResults.apiOwnerName %>
-        </p>
-        <p class="apiOwnerEmail">
-          API Owner Email: <%= scanResults.apiOwnerEmail %>
-        </p>
-        <p class="apiName">API Name: <%= scanResults.apiName %></p>
-        <p class="apiDescription">
-          API Description: <%= scanResults.Description %>
-        </p>
-        <p class="apiURL">API ULR: <%= scanResults.apiURL %></p>
-        <p class="apiKeywords">
-          API Sensitive Keywords: <%= scanResults.apiKeywords %>
-        </p>
-        <p class="apiIdentifiers">
-          API Identifiers: <%= scanResults.apiIdentifiers %>
-        </p>
-        <p class="scanType">API Scan Type: <%= scanResults.apiScanType %></p>
-        <p class="durationOfScan">
-          Duration Scan: <%= scanResults.apiScanDuration %>
-        </p>
-      </div>
-    </div>
-
-    <div class="reportBreakdownDiv">
-      <h3>Breakdown Report for Broken Object Level Authorization Scan</h3>
-      <div class="bolaReportBreakdown">
-          <div class="vulnerableToBolaScanDetailsDiv">
-            <p class="isVulnrableToBola"></p>
-            <p class="endpointScanned"></p>
-            <p class="apiIdentifiersUsed one"></p>
-            <p class="bolaRequest"></p>
-            <p class="bolaResponse"></p>
-            <p class="bolaResponseStatusCode"></p>
-            <p class="bolaStatusConclusion"></p>
+      <div class="body">
+        <div class="apiIntroductionDetailsDiv">
+          <!-- <h1><u>A Technical Report for BOLA and SSD scans</u></h1> -->
+          <div class="timeAndDateInfoDiv">
+            <p class="timeDateParagraph">Time/Date</p>
+            <p class="time">Time & Date: <%= technicalReport.apiScanTime %></p>
           </div>
-          <div class="notVulnerableToBolaScanDetailsDiv">
-            <p class="isVulnrableToBola"></p>
-            <p class="endpointScanned"></p>
-            <p class="apiIdentifiersUsed one"></p>
-            <p class="bolaRequest"></p>
-            <p class="bolaResponse"></p>
-            <p class="bolaResponseStatusCode"></p>
-            <p class="bolaStatusConclusion"></p>
-          </div>
-        </div>
-    </div>
-
-      <div class="ssdReportBreakdown">
-        <h3>Breakdown Report for Shadow Sensitive Data Scan</h3>
-        <div class="ssdScanDiv">
-          <div
-            class="vulnerableToSsdScanDetailsDiv"
-            id="vulnerableToSsdScanDetailsDiv"
-          >
-            <p class="isVulnrableToSsd">
-              Message: Yes, API is vulnerable to Shadow Sensitive
-              Data Exposure
+          <p class="basicDetailsParagraph">Basic API Details</p>
+          <div class="apiDetailsDiv">
+            <p class="apiOwnerName">
+              API Owner Name: <%= technicalReport.apiOwnerName %>
             </p>
-            <p class="keywordsScanned">
-              Sensitive Keywords
-              scanned:<%=isVulnerableScanReport.Total_Keywords_Scanned %>
+            <p class="apiOwnerEmail">
+              API Owner Email: <%= technicalReport.apiOwnerEmail %>
             </p>
-            <p class="keywordsFlagged">
-              Flaged Keywords: <%=isVulnerableScanReport.Flagged_Keywords %>
+            <p class="apiName">API Name: <%= technicalReport.apiName %></p>
+            <p class="apiDescription">
+              API Description: <%= technicalReport.apiDescription %>
             </p>
-            <p class="keywordsNotFlagged">
-              Unflagged <%=isVulnerableScanReport.Unflagged_Keywords %>
+            <p class="apiURL">API URL: <%= technicalReport.apiURL %></p>
+            <p class="apiKeywords">
+              API Sensitive Keywords: <%= technicalReport.Total_Keywords_Scanned %>
             </p>
-            <p class="ssdRequest">
-              SSD Request: <%=isVulnerableScanReport.Scan_Request %>
+            <p class="apiIdentifiers">
+              API Identifiers: <%= technicalReport.apiIdentifiers %>
             </p>
-            <p class="ssdResponse">
-              SSD Response: <%=isVulnerableScanReport.Scan_Response %>
-            </p>
-            <p class="ssdResponseStatusCode">
-              SSD Status Code: <%=isVulnerableScanReport.Status_Code %>
-            </p>
-            <p class="ssdStatusConclusion">
-              <%=isVulnerableScanReport.Message %>
-            </p>
-          </div> <br>
-
-          <div
-            class="notVulnerableToSsdScanDetailsDiv"
-            id="notVulnerableToSsdScanDetailsDiv"
-          >
-            <p class="isNotVulnrableToSsd">
-              Mesage: No, API is not vulnerable to Shadow Sensitve
-              Data Exposure
-            </p>
-            <p class="keywordsScanned">
-              Sensitive Keywords
-              scanned:<%=isNotVulnerableScanReport.Total_Keywords_Scanned %>
-            </p>
-            <p class="keywordsFlagged">
-              Flaged Keywords: <%=isNotVulnerableScanReport.Flagged_Keywords %>
-            </p>
-            <p class="keywordsNotFlagged">
-              Unflagged <%=isNotVulnerableScanReport.Unflagged_Keywords %>
-            </p>
-            <p class="ssdRequest">
-              SSD Request: <%=isNotVulnerableScanReport.Scan_Request %>
-            </p>
-            <p class="ssdResponse">
-              SSD Response: <%=isNotVulnerableScanReport.Scan_Response %>
-            </p>
-            <p class="ssdResponseStatusCode">
-              SSD Status Code: <%=isNotVulnerableScanReport.Status_Code %>
-            </p>
-            <p class="ssdStatusConclusion">
-              <%=isNotVulnerableScanReport.Message %>
+            <p class="scanType">API Scan Type: <%= technicalReport.apiScanType %></p>
+            <p class="durationOfScan">
+              Duration Scan: <%= technicalReport.apiScanDuration %>
             </p>
           </div>
         </div>
+    
+        <div class="reportBreakdownDiv">
+          <h3>Breakdown Report for Broken Object Level Authorization Scan</h3>
+          <div class="bolaReportBreakdown">
+              <div class="vulnerableToBolaScanDetailsDiv">
+                <p class="isVulnrableToBola"></p>
+                <p class="endpointScanned"></p>
+                <p class="apiIdentifiersUsed one"></p>
+                <p class="bolaRequest"></p>
+                <p class="bolaResponse"></p>
+                <p class="bolaResponseStatusCode"></p>
+                <p class="bolaStatusConclusion"></p>
+              </div>
+              <div class="notVulnerableToBolaScanDetailsDiv">
+                <p class="isVulnrableToBola"></p>
+                <p class="endpointScanned"></p>
+                <p class="apiIdentifiersUsed one"></p>
+                <p class="bolaRequest"></p>
+                <p class="bolaResponse"></p>
+                <p class="bolaResponseStatusCode"></p>
+                <p class="bolaStatusConclusion"></p>
+              </div>
+            </div>
+        </div>
+    
+          <div class="ssdReportBreakdown">
+            <h3>Breakdown Report for Shadow Sensitive Data Scan</h3>
+            <div class="ssdScanDiv">
+              <div
+                class="vulnerableToSsdScanDetailsDiv"
+                id="vulnerableToSsdScanDetailsDiv"
+              >
+                <p class="isVulnrableToSsd">
+                  Message: Yes, API is vulnerable to Shadow Sensitive
+                  Data Exposure
+                </p>
+                <p class="keywordsScanned">
+                  Sensitive Keywords
+                  scanned: <%=technicalReport.Total_Keywords_Scanned %>
+                </p>
+                <p class="keywordsFlagged">
+                  Flaged Keywords: <%=technicalReport.Flagged_Keywords %>
+                </p>
+                <p class="keywordsNotFlagged">
+                  Unflagged: <%=technicalReport.Unflagged_Keywords %>
+                </p>
+                <p class="ssdRequest">
+                  SSD Request: <%=technicalReport.Request %>
+                </p>
+                <p class="ssdResponse">
+                  SSD Response: <%=technicalReport.Response %>
+                </p>
+                <p class="ssdResponseStatusCode">
+                  SSD Status Code: <%=technicalReport.Status_code %>
+                </p>
+                <p class="ssdStatusConclusion">
+                  <%=technicalReport.Message %>
+                </p>
+              </div> <br>
+    
+              <div
+                class="notVulnerableToSsdScanDetailsDiv"
+                id="notVulnerableToSsdScanDetailsDiv"
+              >
+                <p class="isNotVulnrableToSsd">
+                  Mesage: No, API is not vulnerable to Shadow Sensitve
+                  Data Exposure
+                </p>
+                <p class="keywordsScanned">
+                  Sensitive Keywords
+                  scanned: <%=technicalReport.Total_Keywords_Scanned %>
+                </p>
+                <p class="keywordsFlagged">
+                  Flaged Keywords: <%=technicalReport.Flagged_Keywords %>
+                </p>
+                <p class="keywordsNotFlagged">
+                  Unflagged: <%=technicalReport.Unflagged_Keywords %>
+                </p>
+                <p class="ssdRequest">
+                  SSD Request: <%=technicalReport.Request %>
+                </p>
+                <p class="ssdResponse">
+                  SSD Response: <%=technicalReport.Response %>
+                </p>
+                <p class="ssdResponseStatusCode">
+                  SSD Status Code: <%=technicalReport.Status_code %>
+                </p>
+                <p class="ssdStatusConclusion">
+                  <%=technicalReport.Message %>
+                </p>
+              </div>
+            </div>
+          </div>
+           <!-- Div for Impact of neglecting both BOLA and SSD in API -->
+        <div class="impact">
+          <div class="bolaImpactDiv">
+            <h3>Impact of BOLA Vulnerability to Application Logic</h3>
+            <p class="bolaImpact"></p>
+          </div>
+          <div class="ssdImpactDiv">
+            <h3>Impact of neglecting SSD in API's</h3>
+            <p class="ssdImpact"></p>
+          </div>
+        </div>
+    
+        <!-- Recommendations for both against scan results obtained -->
+        <div class="recommendation">
+          <div class="bolaReportRecommendationDiv">
+            <h3>Recommendation/Mitigation Strategies for BOLA Vulnerability</h3>
+            <p class="bolaRecommendation"></p>
+          </div>
+          <div class="ssdReportRecommendationDiv">
+            <h3>
+              Recommendation/Mitigation Strategies for reduced exposure of SSD
+            </h3>
+            <p class="ssdRecommendation"></p>
+          </div>
+        </div>
+    
+        <footer><p class="copywright">M4z3 Copywright 2024</p></footer>
+        </div>
+    
+       <div class="reportHero">
+        <div class="reportNotice">
+          <h1 class="heroHeading">API SCAN TECHNICAL REPORT</h1>
+        <p class="heroParagraph">A  report for Developers, SOC Team, DevSecOps and other Fields dealing with the Technicalities</p>
+        <p class="heroRoundUp">M4z3 Technical Report</p>
+        </div>
+       </div>
       </div>
-    </div>
-
-    <!-- Div for Impact of neglecting both BOLA and SSD in API -->
-    <div class="impact">
-      <div class="bolaImpactDiv">
-        <h3>Impact of BOLA Vulnerability to Application Logic</h3>
-        <p class="bolaImpact"></p>
-      </div>
-      <div class="ssdImpactDiv">
-        <h3>Impact of neglecting SSD in API's</h3>
-        <p class="ssdImpact"></p>
-      </div>
-    </div>
-
-    <!-- Recommendations for both against scan results obtained -->
-    <div class="recommendation">
-      <div class="bolaReportRecommendationDiv">
-        <h3>Recommendation/Mitigation Strategies for BOLA Vulnerability</h3>
-        <p class="bolaRecommendation"></p>
-      </div>
-      <div class="ssdReportRecommendationDiv">
-        <h3>
-          Recommendation/Mitigation Strategies for reduced exposure of SSD
-        </h3>
-        <p class="ssdRecommendation"></p>
-      </div>
-    </div>
-
-    <footer><p class="copywright">M4z3 Copywright 2024</p></footer>
   </body>
 </html>

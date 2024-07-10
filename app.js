@@ -9,36 +9,54 @@ const morgan = require("morgan");
 const cors = require("cors");
 const path = require("path");
 const { authRoutes, apiScans } = require("./routes/index");
+const reportData = require("./models/report.model");
 app.use(express.static("./public"));
 
 // const {
 //   fetchUserApiDetailsAndScanForShadowSensitiveData,
 // } = require("./controllers/scanShadowSensitiveData.controllers");
 
-// app.set("views", path.join(__dirname, "views"));
-// app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "ejs");
 
-// app.get("/technical-report/:user_id", async (req, res) => {
-//   const scanData = await fetchUserApiDetailsAndScanForShadowSensitiveData(
-//     req,
-//     res
-//   );
-//   if (scanData) {
-//     res.render("technicalReport.ejs", {
-//       scanResults,
-//       isVulnerableScanReport,
-//       isNotVulnerableScanReport,
-//     });
-//   }
-// });
+async function getScanReportByName(apiName) {
+  try {
+    const scanResults = await reportData.findOne({ apiName: apiName });
 
-// app.get("/executive-report/:user_id", (req, res) => {
-//   res.render("executiveReport.ejs", {
-//     scanResults,
-//     isVulnerableScanReport,
-//     isNotVulnerableScanReport,
-//   });
-// });
+    if (!scanResults) {
+      return "There's no report under this name";
+    }
+    return scanResults;
+  } catch (error) {
+    console.error("Error fetching scan report:", error);
+    return error;
+  }
+}
+app.get("/technical-report/:apiName", async (req, res) => {
+  const { apiName } = req.params;
+  const technicalReport = await getScanReportByName(apiName);
+
+  if (!technicalReport) {
+    return res
+      .status(404)
+      .send("There is no saved Technical Scan report in this API name");
+  } else {
+    res.render("technicalReport.ejs", { technicalReport });
+  }
+});
+
+app.get("/executive-report/:apiName", async (req, res) => {
+  const { apiName } = req.params;
+  const executiveReport = await getScanReportByName(apiName);
+
+  if (!executiveReport) {
+    return res
+      .status(404)
+      .send("There is no saved Technical Scan report in this API name");
+  } else {
+    res.render("executiveReport.ejs", { executiveReport });
+  }
+});
 
 app.use("/auth", authRoutes);
 app.use("/api", apiScans);
