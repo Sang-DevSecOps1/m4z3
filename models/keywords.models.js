@@ -8,7 +8,7 @@ const sensitiveKeywordsSchema = new Schema({
     unique: true,
   },
   apiKeywords: {
-    type: [String],
+    type: [],
     required: true,
     unique: true,
   },

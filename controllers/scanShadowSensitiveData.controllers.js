@@ -18,18 +18,51 @@ exports.saveApiCredentials = async (req, res) => {
       apiName,
       apiDescription,
       apiKey,
-      apiURL,
+      apiEndpointURL,
+      hostURL,
+      apiKeyword1,
+      apiKeyword2,
+      apiKeyword3,
+      uniqueId1,
+      uniqueId2,
     } = req.body;
+
     const newApi = new api({
       user_id,
-      ...req.body,
+      apiOwnerName,
+      apiOwnerEmail,
+      apiName,
+      apiDescription,
+      apiEndpointURL,
+      apiKey,
+      hostURL,
     });
 
+    const newSensitiveKeywords = new sensitiveKeywords({
+      user_id,
+      apiKeyword1,
+      apiKeyword2,
+      apiKeyword3,
+    });
+
+    const newUniqueIds = new uniqueIds({ user_id, uniqueId1, uniqueId2 });
+
+    // = req.body;
+    // const newApi = new api({
+    //   user_id,
+    //   ...req.body,
+    // });
+
     await newApi.save();
+    await newSensitiveKeywords.save();
+    await newUniqueIds.save();
+
     console.log(newApi);
     return res.status(201).send({
       Message: "API Credentials successfully stored",
-      userData: newApi,
+      API: newApi,
+      Keywords: newSensitiveKeywords,
+      API: newUniqueIds,
     });
   } catch (error) {
     console.log(error);
