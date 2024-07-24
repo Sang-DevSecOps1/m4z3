@@ -12,9 +12,32 @@ const { authRoutes, apiScans } = require("./routes/index");
 const reportData = require("./models/report.model");
 app.use(express.static("./public"));
 
-// const {
-//   fetchUserApiDetailsAndScanForShadowSensitiveData,
-// } = require("./controllers/scanShadowSensitiveData.controllers");
+app.use(express.json());
+app.use("/auth", authRoutes);
+app.use("/api", apiScans);
+
+//Connecting to Mongo DB!!
+mongoose.set("strictQuery", true);
+
+const connectMongodb = async () => {
+  try {
+    await mongoose.connect(process.env.MONGO);
+    console.log("D4t4B4s3 1s Succ3sfully C0nn3ct3d");
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+app.use(cors());
+app.use(morgan("tiny"));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+    credentials: true,
+  })
+);
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
@@ -57,32 +80,6 @@ app.get("/executive-report/:apiName", async (req, res) => {
     res.render("executiveReport.ejs", { executiveReport });
   }
 });
-
-app.use("/auth", authRoutes);
-app.use("/api", apiScans);
-
-//Connecting to Mongo DB!!
-mongoose.set("strictQuery", true);
-
-const connectMongodb = async () => {
-  try {
-    await mongoose.connect(process.env.MONGO);
-    console.log("D4t4B4s3 1s Succ3sfully C0nn3ct3d");
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-app.use(cors());
-app.use(morgan("tiny"));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(
-  cors({
-    origin: "http://localhost:3000",
-    credentials: true,
-  })
-);
 
 // Parsing all 404 requests
 app.use((req, res, next) => {
