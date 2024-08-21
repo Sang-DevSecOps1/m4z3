@@ -39,7 +39,7 @@ exports.signUpUser = async (req, res) => {
 exports.logInUser = async (req, res) => {
   try {
     const { user_email, password } = req.body;
-    console.log(req.body);
+    // console.log(req.body);
     const user = await User.findOne({ user_email }, { _id: 1, password: 1 });
 
     if (!user) {

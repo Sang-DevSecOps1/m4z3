@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "axios": "^1.7.2",
+    "axios": "^1.7.4",
     "bcrypt": "^5.1.1",
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
@@ -10,9 +10,10 @@
     "fs": "^0.0.1-security",
     "fuse.js": "^7.0.0",
     "jsonwebtoken": "^9.0.2",
-    "jsreport": "^4.5.0",
+    "jsreport": "^4.6.0",
     "mongo": "^0.1.0",
-    "mongoose": "^8.4.4",
+    "mongodb": "^6.8.0",
+    "mongoose": "^8.5.3",
     "morgan": "^1.10.0",
     "nodemon": "^3.1.4",
     "path": "^0.12.7",
