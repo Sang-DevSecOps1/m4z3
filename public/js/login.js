@@ -27,7 +27,6 @@ async function userLogin() {
 
     if (response.status === 200) {
       const loggedUser = await response.json();
-      alert("You have successfully logged in.");
       window.location = "../views/dashboard.html";
 
       const userId = loggedUser.userDetails.user_id;
@@ -37,8 +36,12 @@ async function userLogin() {
       sessionStorage.setItem("user_id", userId);
       sessionStorage.setItem("user_email", userEmail);
       sessionStorage.setItem("password", userPassword);
-    };
+    }
+    else if (response === 404) {
+      alert("Wrong Email or Password, re-type Email and Email Please!!");
+    }
   } catch (error) {
     console.log(error, "An error occurred while logging in account.");
+    alert("There was an error logging into account, contact customer service to rectify the issue.")
   }
 }

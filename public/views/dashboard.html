@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="../css/dashboard.css" />
   </head>
   <nav class="navigation">
-    <div class="maze-logo">
+    <div class="Maze-logo">
       <a href="../index.html">
         <img src="../favicon.ico" alt="" />
         Maze</a
@@ -64,7 +64,7 @@
 
           <button>
             <span class="material-symbols-outlined"> summarize </span>
-            <span class="dashboard-button"> Report</span>
+            <span class="dashboard-button" id="get-report"> Report</span>
           </button>
 
           <button>
@@ -198,7 +198,7 @@
               <button class="generate-report">
                 <span class="material-symbols-outlined target-controls">
                   add </span
-                >Generate Report
+                >Get Report
               </button>
               <button class="delete-target">
                 <span class="material-symbols-outlined target-controls">
@@ -237,7 +237,7 @@
                 </label>
                 <button
                   type="button"
-                  class="target-credentials-next-button"
+                  class="target-credentials-next-button-one"
                   id="target-credentials-next-button1"
                 >
                   Next
@@ -246,7 +246,7 @@
 
               <!-- To collect API Description Data -->
               <div class="targetApiDetails" id="targetApiDetails">
-                <h3>API Owner Details</h3>
+                <h3>API Details</h3>
                 <label for="apiName"
                   >API Name
                   <input
@@ -288,7 +288,7 @@
                 class="sensitiveAPIDataCollection"
                 id="sensitiveAPIDataCollection"
               >
-                <h3>API Params</h3>
+                <h3>API Scan parameters</h3>
                 <label for="apiKey"
                   >API Key
                   <input
@@ -304,9 +304,10 @@
                     type="text"
                     placeholder="enter API URL"
                     class="input"
-                    id="apiURL"
+                    id="hostURL"
                   />
                 </label>
+
                 <div class="target-buttons">
                   <button
                     type="button"
@@ -325,9 +326,38 @@
                 </div>
               </div>
 
+              <div class="api-endpoint-url" id="api-endpoint-url">
+                <h3>API Endpoint URL</h3>
+                <label
+                  >Endpoint URL to be Scanned
+                  <input
+                    type="text"
+                    placeholder="Input endpoint URL"
+                    class="input"
+                    id="apiEndpointURL"
+                  />
+                </label>
+                <div class="target-buttons">
+                  <button
+                    type="button"
+                    class="target-credentials-next-button-four-previous"
+                    id="apiEndpointURLForm"
+                  >
+                    Previous
+                  </button>
+                  <button
+                    type="button"
+                    class="target-credentials-next-button-four"
+                    id="target-credentials-next-button4"
+                  >
+                    Next
+                  </button>
+                </div>
+              </div>
+
               <!-- To collect API Parameters for scan -->
               <div class="api-scan-id-div" id="api-scan-id-div">
-                <h3>API Unique IDs</h3>
+                <h3>Unique IDs for BOLA Scans</h3>
                 <label
                   >Unique Identifiers for BOLA Scan
                   <input
@@ -346,15 +376,15 @@
                 <div class="target-buttons">
                   <button
                     type="button"
-                    class="target-credentials-next-button-four-previous"
+                    class="target-credentials-next-button-five-previous"
                     id="sensitiveAPIDataCollectionForm"
                   >
                     Previous
                   </button>
                   <button
                     type="button"
-                    class="target-credentials-next-button-four"
-                    id="target-credentials-next-button4"
+                    class="target-credentials-next-button-five"
+                    id="target-credentials-next-button5"
                   >
                     Next
                   </button>
@@ -391,7 +421,7 @@
                 <div class="target-buttons">
                   <button
                     type="button"
-                    class="target-credentials-next-button-four-previous"
+                    class="target-credentials-next-button-six-previous"
                     id="api-scan-id-div-form"
                   >
                     Previous
@@ -499,6 +529,21 @@
                   expand_more
                 </span>
               </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reports" id="get-report">
+        <div class="reports-div">
+          <div class="reports-nav">
+            <div class="reports-heading">
+              <h1><span></span></h1>
+              <div class="report-nav-options">
+                <button>Delete Reports</button>
+                <button>Trash</button>
+              </div>
+              <input type="text" class="search-report" id="search-report" />
             </div>
           </div>
         </div>

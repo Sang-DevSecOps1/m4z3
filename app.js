@@ -58,13 +58,15 @@ async function getScanReportByName(apiName) {
 app.get("/technical-report/:apiName", async (req, res) => {
   const { apiName } = req.params;
   const technicalReport = await getScanReportByName(apiName);
-
   if (!technicalReport) {
     return res
       .status(404)
       .send("There is no saved Technical Scan report in this API name");
   } else {
     res.render("technicalReport.ejs", { technicalReport });
+    if (technicalReport.Flagged_Keywords === null) {
+      
+    }
   }
 });
 

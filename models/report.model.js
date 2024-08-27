@@ -57,7 +57,11 @@ const scanResultSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
-    Message: {
+    Vulnerable_Message: {
+      type: String,
+      required: true,
+    },
+    Not_Vulnerable_Message: {
       type: String,
       required: true,
     },

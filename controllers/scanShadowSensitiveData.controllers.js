@@ -47,22 +47,12 @@ exports.saveApiCredentials = async (req, res) => {
 
     const newUniqueIds = new uniqueIds({ user_id, uniqueId1, uniqueId2 });
 
-    // = req.body;
-    // const newApi = new api({
-    //   user_id,
-    //   ...req.body,
-    // });
-
     await newApi.save();
     await newSensitiveKeywords.save();
     await newUniqueIds.save();
 
-    console.log(newApi);
     return res.status(201).send({
       Message: "API Credentials successfully stored",
-      API: newApi,
-      Keywords: newSensitiveKeywords,
-      API: newUniqueIds,
     });
   } catch (error) {
     console.log(error);
@@ -140,7 +130,7 @@ exports.fetchUserApiDetailsAndScanForShadowSensitiveData = async (req, res) => {
 
     // Check if the user_id or not
     if (!apiDetails || !keywords || !uniqueId) {
-      return "Sorry, couldn't find this user in any of our databases";
+      return "Sorry, couldn't find any of these information in any of our databases";
     } else {
       const apiKeyHeader = apiDetails.apiKey;
 
@@ -187,10 +177,13 @@ exports.fetchUserApiDetailsAndScanForShadowSensitiveData = async (req, res) => {
         Flagged_Keywords = foundKeywords;
         Unflagged_Keywords = notFoundKeywords;
         Status_code = 200;
-        Message = "This API is vulnerable to Shadow Sensitive Data Exposure";
+        vulnerable_Message = "";
+        Not_Vulnerable_Message = "";
         Request = apiUrl;
         Response = apiData;
 
+        if (Flagged_Keywords === null) {
+        }
         const newScanReport = new scanReports({
           user_id,
           apiScanTime,
@@ -205,7 +198,8 @@ exports.fetchUserApiDetailsAndScanForShadowSensitiveData = async (req, res) => {
           Flagged_Keywords,
           Unflagged_Keywords,
           Status_code,
-          Message,
+          vulnerable_Message,
+          Not_Vulnerable_Message,
           Request,
           Response,
         });

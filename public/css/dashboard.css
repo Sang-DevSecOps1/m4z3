@@ -11,17 +11,17 @@
   display: grid;
   grid-template-columns: auto auto auto;
 }
-.navigation .maze-logo {
+.navigation .Maze-logo {
   margin-top: 3%;
   margin-left: 3%;
 }
-.maze-logo a {
+.Maze-logo a {
   text-decoration: none;
   display: inline-flex;
   align-items: center;
   color: white;
 }
-.maze-logo a img {
+.Maze-logo a img {
   width: 3vw;
   height: 6vh;
 }
@@ -360,7 +360,9 @@ body {
 }
 .target-form-class .target-credentials-next-button-two,
 .target-credentials-next-button-three,
-.target-credentials-next-button-four {
+.target-credentials-next-button-four,
+.target-credentials-next-button-five,
+.target-credentials-next-button-six {
   height: 5vh;
   width: 10vw;
   color: aliceblue;
@@ -371,7 +373,9 @@ body {
 }
 .target-form-class .target-credentials-next-button-two-previous,
 .target-credentials-next-button-three-previous,
-.target-credentials-next-button-four-previous {
+.target-credentials-next-button-four-previous,
+.target-credentials-next-button-five-previous,
+.target-credentials-next-button-six-previous {
   height: 5vh;
   width: 10vw;
   color: aliceblue;
@@ -384,6 +388,7 @@ body {
 .currentApiOwner,
 .targetApiDetails,
 .sensitiveAPIDataCollection,
+.api-endpoint-url,
 .api-scan-id-div,
 .api-shadow-sensitive-scan-params-div {
   width: 100%;
@@ -392,6 +397,7 @@ body {
 }
 .targetApiDetails,
 .sensitiveAPIDataCollection,
+.api-endpoint-url,
 .api-scan-id-div,
 .api-shadow-sensitive-scan-params-div {
   display: none;
@@ -549,4 +555,10 @@ body {
 }
 .vulnerabilities-options button .more {
   color: black;
+}
+.reports {
+  display: none;
+}
+.reports .reports-div {
+  background-color: aliceblue;
 }
