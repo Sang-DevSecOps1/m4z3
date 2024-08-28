@@ -24,7 +24,7 @@ exports.saveApiCredentials = async (req, res) => {
       uniqueId1,
       uniqueId2,
     } = req.body;
-    
+
     const newApi = new api({
       user_id,
       apiOwnerName,
@@ -38,7 +38,7 @@ exports.saveApiCredentials = async (req, res) => {
 
     const newSensitiveKeywords = new sensitiveKeywords({
       user_id,
-      apiKeywords
+      apiKeywords,
     });
 
     const newUniqueIds = new uniqueIds({ user_id, uniqueId1, uniqueId2 });

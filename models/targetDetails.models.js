@@ -10,37 +10,37 @@ const apiSchema = new Schema({
   apiOwnerName: {
     type: String,
     required: true,
-    unique: true,
+    unique: false,
   },
   apiOwnerEmail: {
     type: String,
     required: true,
-    unique: true,
+    unique: false,
   },
   apiName: {
     type: String,
     required: true,
-    unique: true,
+    unique: false,
   },
   apiDescription: {
     type: String,
     required: true,
-    unique: true,
+    unique: false,
   },
   apiKey: {
     type: String,
     required: true,
-    unique: true,
+    unique: false,
   },
   apiEndpointURL: {
     type: String,
     required: true,
-    unique: true,
+    unique: false,
   },
   hostURL: {
     type: String,
     required: true,
-    unique: true,
+    unique: false,
   },
 });
 

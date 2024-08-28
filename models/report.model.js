@@ -23,7 +23,6 @@ const scanResultSchema = new mongoose.Schema(
     apiName: {
       type: String,
       required: true,
-      unique: true,
     },
     apiDescription: {
       type: String,

@@ -225,24 +225,21 @@ async function saveApiDataFunction() {
       }
     );
 
-    alert("Hello sang");
     if ((response.status = 201)) {
       const newApi = await response.json();
       alert("Api Data stored sucesssfully");
       window.location = "#user-scan";
 
-      const user_id = newApi.user_id;
-      const apiOwnerName = newApi.apiOwnerName;
-      const apiOwnerEmail = newApi.apiOwnerEmail;
-      const apiDescription = newApi.apiDescription;
-      const apiKey = newApi.apiKey;
-      const apiEndpointURL = newApi.apiEndpointURL;
-      const hostURL = newApi.apiURL;
-      const uniqueId1 = newApi.uniqueId1;
-      const uniqueId2 = newApi.uniqueId2;
-      const apiKeywords1 = newApi.apiKeywords1;
-      const apiKeywords2 = newApi.apiKeywords2;
-      const apiKeywords3 = newApi.apiKeywords3;
+      // const user_id = newApi.user_id;
+      // const apiOwnerName = newApi.apiOwnerName;
+      // const apiOwnerEmail = newApi.apiOwnerEmail;
+      // const apiDescription = newApi.apiDescription;
+      // const apiKey = newApi.apiKey;
+      // const apiEndpointURL = newApi.apiEndpointURL;
+      // const hostURL = newApi.hostURL;
+      // const uniqueId1 = newApi.uniqueId1;
+      // const uniqueId2 = newApi.uniqueId2;
+      // const apiKeywords = newApi.apiKeywords;
     } else {
       alert("Something went wrong!!");
     }
