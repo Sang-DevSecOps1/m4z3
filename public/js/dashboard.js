@@ -199,6 +199,7 @@ async function saveApiDataFunction() {
   try {
     const user_id = sessionStorage.getItem("user_id");
 
+    const apiKeywords = [ apiKeywords1, apiKeywords2, apiKeywords3 ];
     const apiData = {
       user_id,
       apiOwnerName,
@@ -208,11 +209,9 @@ async function saveApiDataFunction() {
       apiKey,
       apiEndpointURL,
       hostURL,
+      apiKeywords,
       uniqueId1,
       uniqueId2,
-      apiKeywords1,
-      apiKeywords2,
-      apiKeywords3,
     };
 
     const response = await fetch(
@@ -230,7 +229,7 @@ async function saveApiDataFunction() {
     if ((response.status = 201)) {
       const newApi = await response.json();
       alert("Api Data stored sucesssfully");
-      // window.location = "#user-scan";
+      window.location = "#user-scan";
 
       const user_id = newApi.user_id;
       const apiOwnerName = newApi.apiOwnerName;

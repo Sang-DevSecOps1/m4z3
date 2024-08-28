@@ -24,7 +24,6 @@ async function userLogin() {
       body: JSON.stringify(credentials),
     });
 
-
     if (response.status === 200) {
       const loggedUser = await response.json();
       window.location = "../views/dashboard.html";
@@ -36,12 +35,13 @@ async function userLogin() {
       sessionStorage.setItem("user_id", userId);
       sessionStorage.setItem("user_email", userEmail);
       sessionStorage.setItem("password", userPassword);
-    }
-    else if (response === 404) {
+    } else if (response !== 200) {
       alert("Wrong Email or Password, re-type Email and Email Please!!");
     }
   } catch (error) {
     console.log(error, "An error occurred while logging in account.");
-    alert("There was an error logging into account, contact customer service to rectify the issue.")
+    alert(
+      "There was an error logging into account, contact customer service to rectify the issue."
+    );
   }
 }

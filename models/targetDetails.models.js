@@ -5,7 +5,7 @@ const apiSchema = new Schema({
   user_id: {
     type: String,
     required: true,
-    unique: true,
+    unique: false,
   },
   apiOwnerName: {
     type: String,
