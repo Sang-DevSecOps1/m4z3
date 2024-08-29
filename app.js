@@ -9,7 +9,8 @@ const morgan = require("morgan");
 const cors = require("cors");
 const path = require("path");
 const { authRoutes, apiScans } = require("./routes/index");
-const reportData = require("./models/report.model");
+const ssdScanResult = require("./models/ssdScanReport.models");
+const bolaScanResult = require("./models/bolaScanReport.models");
 app.use(express.static("./public"));
 
 app.use(express.json());
@@ -39,12 +40,14 @@ app.use(
   })
 );
 
+// Setting the environment for the Report
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
-async function getScanReportByName(apiName) {
+//Function for finding A Shadow Sensitive Data Scan report by the API Name
+async function getSsdScanReportByName(apiName) {
   try {
-    const scanResults = await reportData.findOne({ apiName: apiName });
+    const scanResults = await ssdScanResult.findOne({ apiName: apiName });
 
     if (!scanResults) {
       return "There's no report under this name";
@@ -55,9 +58,26 @@ async function getScanReportByName(apiName) {
     return error;
   }
 }
+
+// Function for finding A Broken Object Level Authorization Scan report by the API Name
+async function getBolaScanReportByName(apiName) {
+  try {
+    const scanResults = await bolaScanResult.findOne({ apiName: apiName });
+
+    if (!scanResults) {
+      return "There's no report under this name";
+    }
+    return scanResults;
+  } catch (error) {
+    console.error("Error fetching scan report:", error);
+    return error;
+  }
+}
+
+// Technical and Executive Report for Shadow Sensitive Data Scans
 app.get("/technical-report/:apiName", async (req, res) => {
   const { apiName } = req.params;
-  const technicalReport = await getScanReportByName(apiName);
+  const technicalReport = await getSsdScanReportByName(apiName);
   if (!technicalReport) {
     return res
       .status(404)
@@ -65,14 +85,41 @@ app.get("/technical-report/:apiName", async (req, res) => {
   } else {
     res.render("technicalReport.ejs", { technicalReport });
     if (technicalReport.Flagged_Keywords === null) {
-      
     }
   }
 });
 
 app.get("/executive-report/:apiName", async (req, res) => {
   const { apiName } = req.params;
-  const executiveReport = await getScanReportByName(apiName);
+  const executiveReport = await getSsdScanReportByName(apiName);
+
+  if (!executiveReport) {
+    return res
+      .status(404)
+      .send("There is no saved Technical Scan report in this API name");
+  } else {
+    res.render("executiveReport.ejs", { executiveReport });
+  }
+});
+
+// Technical and Exeutive Report for Broken Object Level Authourization Scan
+app.get("/technical-report/:apiName", async (req, res) => {
+  const { apiName } = req.params;
+  const technicalReport = await getBolaScanReportByName(apiName);
+  if (!technicalReport) {
+    return res
+      .status(404)
+      .send("There is no saved Technical Scan report in this API name");
+  } else {
+    res.render("technicalReport.ejs", { technicalReport });
+    if (technicalReport.Flagged_Keywords === null) {
+    }
+  }
+});
+
+app.get("/executive-report/:apiName", async (req, res) => {
+  const { apiName } = req.params;
+  const executiveReport = await getBolaScanReportByName(apiName);
 
   if (!executiveReport) {
     return res

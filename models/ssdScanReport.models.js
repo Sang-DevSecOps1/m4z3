@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const scanResultSchema = new mongoose.Schema(
+const ssdScanResultSchema = new mongoose.Schema(
   {
     user_id: {
       type: mongoose.Schema.Types.String,
@@ -11,70 +11,80 @@ const scanResultSchema = new mongoose.Schema(
     apiScanTime: {
       type: String,
       required: true,
+      unique: false,
     },
     apiOwnerName: {
       type: String,
       required: true,
+      unique: false,
     },
     apiOwnerEmail: {
       type: String,
       required: true,
+      unique: false,
     },
     apiName: {
       type: String,
       required: true,
+      unique: false,
     },
     apiDescription: {
       type: String,
       required: true,
+      unique: false,
     },
     apiURL: {
       type: String,
       required: true,
+      unique: false,
     },
     apiScanType: {
       type: String,
       required: true,
+      unique: false,
     },
     apiScanDuration: {
       type: String,
       required: false,
     },
-    Total_Keywords_Scanned: {
-      type: [],
-      required: true,
-    },
     Flagged_Keywords: {
       type: Object,
       required: true,
+      unique: false,
     },
     Unflagged_Keywords: {
       type: Object,
       required: true,
+      unique: false,
     },
     Status_code: {
       type: Number,
       required: true,
+      unique: false,
     },
     Vulnerable_Message: {
       type: String,
       required: true,
+      unique: false,
     },
     Not_Vulnerable_Message: {
       type: String,
       required: true,
+      unique: false,
     },
     Request: {
       type: String,
       required: true,
+      unique: false,
     },
     Response: {
       type: mongoose.Schema.Types.Mixed,
       required: true,
+      unique: false,
     },
   },
   { timestamps: true }
 );
 
-const ScanResult = mongoose.model("ScanResult", scanResultSchema);
-module.exports = ScanResult;
+const ssdScanResult = mongoose.model("ssdScanResult", ssdScanResultSchema);
+module.exports = ssdScanResult;

@@ -199,7 +199,7 @@ async function saveApiDataFunction() {
   try {
     const user_id = sessionStorage.getItem("user_id");
 
-    const apiKeywords = [ apiKeywords1, apiKeywords2, apiKeywords3 ];
+    const apiKeywords = [apiKeywords1, apiKeywords2, apiKeywords3];
     const apiData = {
       user_id,
       apiOwnerName,
@@ -227,9 +227,12 @@ async function saveApiDataFunction() {
 
     if ((response.status = 201)) {
       const newApi = await response.json();
+      console.log(newApi);
       alert("Api Data stored sucesssfully");
-      window.location = "#user-scan";
-
+      console.log(
+        `API Key is ${newApi.newAPI.apiKey}, API URL is ${newApi.newAPI.hostURL}, API endpoint to be scanned is ${newApi.newAPI.apiEndpointURL}`
+      );
+      // window.location = "#user-scan";
       // const user_id = newApi.user_id;
       // const apiOwnerName = newApi.apiOwnerName;
       // const apiOwnerEmail = newApi.apiOwnerEmail;
@@ -240,6 +243,33 @@ async function saveApiDataFunction() {
       // const uniqueId1 = newApi.uniqueId1;
       // const uniqueId2 = newApi.uniqueId2;
       // const apiKeywords = newApi.apiKeywords;
+
+      // const apiDetails = {apiOwnerName, apiOwnerEmail, apiDescription, apiKey, apiEndpointURL, hostURL};
+      // const keywords = {apiKeywords};
+      // const uniqueId = {uniqueId1, uniqueId2};
+
+      alert("Hello, you are about to start the scan");
+      console.log(user_id);
+
+      const scanAPI = await fetch(
+        `http://localhost:3000/api/api/get-all-api-data/${user_id}`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${newApi.newAPI.apiKey}`
+          },
+        }
+      );
+
+      alert("Hello, you are here now");
+      const scanResult = await scanAPI.json();
+      console.log(scanResult);
+
+      if (scanResult === 200) {
+        alert("Your scan was succesful");
+        console.log(scanAPI.data);
+      }
     } else {
       alert("Something went wrong!!");
     }

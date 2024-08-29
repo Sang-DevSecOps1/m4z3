@@ -5,10 +5,12 @@ const sensitiveKeywordsSchema = new Schema({
   user_id: {
     type: String,
     required: true,
+    unique: false,
   },
   apiKeywords: {
     type: [],
     required: true,
+    unique: false,
   },
 });
 

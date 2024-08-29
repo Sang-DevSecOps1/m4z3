@@ -5,14 +5,12 @@ const uniqueIdSchema = new Schema({
   user_id: {
     type: String,
     required: true,
+    unique: false,
   },
-  uniqueId1: {
-    type: String,
+  uniqueId: {
+    type: [],
     required: true,
-  },
-  uniqueId2: {
-    type: String,
-    required: true,
+    unique: false,
   },
 });
 

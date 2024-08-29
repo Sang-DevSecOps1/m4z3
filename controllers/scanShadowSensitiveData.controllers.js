@@ -1,10 +1,8 @@
 const api = require("../models/targetDetails.models");
 const sensitiveKeywords = require("../models/keywords.models");
 const uniqueIds = require("../models/uniqueIds.models");
-const scanReports = require("../models/report.model");
+const scanReports = require("../models/ssdScanReport.models");
 const handleErrors = require("../utilities/handleErrors");
-const app = require("express");
-
 const axios = require("axios");
 const Fuse = require("fuse.js");
 
@@ -49,46 +47,9 @@ exports.saveApiCredentials = async (req, res) => {
 
     return res.status(201).send({
       Message: "API Credentials successfully stored",
-    });
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-// To collect sensitive keywords for the shadow sensitive scan
-exports.collectApiSensitiveKeywords = async (req, res) => {
-  try {
-    const { user_id, apiKeyword1, apiKeyword2, apiKeyword3 } = req.body;
-    const collectApiSensitiveKeyword = new sensitiveKeywords({
-      user_id,
-      ...req.body,
-    });
-
-    await collectApiSensitiveKeyword.save();
-    console.log(collectApiSensitiveKeyword);
-    return res.status(201).send({
-      Message: "API sensitive keywords successfully collected and stored",
-      userData: collectApiSensitiveKeyword,
-    });
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-// To collect the unque Ids for performing the BOLA scan
-exports.collectUniqueIds = async (req, res) => {
-  try {
-    const { user_id, uniqueId1, uniqueId2 } = req.body;
-    const collectUniqueId = new uniqueIds({
-      user_id,
-      ...req.body,
-    });
-
-    await collectUniqueId.save();
-    console.log(collectUniqueId);
-    return res.status(201).send({
-      Message: "API unique Identifiers collected and stored successfully",
-      userData: collectUniqueId,
+      newAPI: newApi,
+      newSensitiveKeywords: newSensitiveKeywords,
+      newUniqueIds: newUniqueIds,
     });
   } catch (error) {
     console.log(error);
@@ -129,16 +90,28 @@ exports.fetchUserApiDetailsAndScanForShadowSensitiveData = async (req, res) => {
       return "Sorry, couldn't find any of these information in any of our databases";
     } else {
       const apiKeyHeader = apiDetails.apiKey;
+      const hostURL = apiDetails.hostURL;
+      const apiEndpointURL = apiDetails.apiEndpointURL;
 
       // API Key header
       const headers = apiKeyHeader;
+      console.log(headers);
+      console.log(hostURL);
+      console.log(apiEndpointURL);
 
       // API URL and the axios querying the API
-      const apiUrl = `${apiDetails.hostURL}${apiDetails.apiEndpointURL}`;
+      // d266031f7emsh560d74c3967d7c0p15ac83jsn0377c1239a6f
+      const apiUrl = `${hostURL}${apiEndpointURL}`;
+      console.log(apiUrl);
+
       const response = await axios.get(apiUrl, { headers });
 
       const apiData = response.data;
+      console.log(apiData);
+
       const apiKeywords = keywords.apiKeywords;
+      console.log(apiKeywords);
+
       const apiDataValues = collectApiDataValues(apiData);
 
       // Initialize Fuse.js with collected values
@@ -166,8 +139,8 @@ exports.fetchUserApiDetailsAndScanForShadowSensitiveData = async (req, res) => {
         apiOwnerEmail = `${apiDetails.apiOwnerEmail}`;
         apiName = `${apiDetails.apiName}`;
         apiDescription = `${apiDetails.apiDescription}`;
-        apiURL = `${apiDetails.hostURL}`;
-        apiScanType = "BOLA and SSD Scans";
+        apiUrl = `${apiDetails.hostURL}`;
+        apiScanType = "";
         apiScanDuration = "";
         Total_Keywords_Scanned = keywords.apiKeywords;
         Flagged_Keywords = foundKeywords;
@@ -180,14 +153,14 @@ exports.fetchUserApiDetailsAndScanForShadowSensitiveData = async (req, res) => {
 
         if (Flagged_Keywords === null) {
         }
-        const newScanReport = new scanReports({
+        const newScanReport = new scanReport({
           user_id,
           apiScanTime,
           apiOwnerName,
           apiOwnerEmail,
           apiName,
           apiDescription,
-          apiURL,
+          apiUrl,
           apiScanType,
           apiScanDuration,
           Total_Keywords_Scanned,
@@ -202,7 +175,7 @@ exports.fetchUserApiDetailsAndScanForShadowSensitiveData = async (req, res) => {
 
         const saveReportData = await newScanReport.save();
 
-        return res.status(200).json({ newScanReport: newScanReport.Message });
+        return res.status(200).json({ newScanReport: saveReportData });
       } else {
         return "Report data has not been saved";
       }
@@ -225,6 +198,88 @@ exports.fetchUserApiDetailsAndScanForShadowSensitiveData = async (req, res) => {
     //     }
     //   });
     //   return foundKeywords;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+exports.fetchUserApiDetailsAndScanForBrokenObjectLevelAuthorisation = async (
+  req,
+  res
+) => {
+  try {
+    const user_id = req.params.user_id;
+    const apiDetails = await api.findOne({ user_id: user_id });
+    const uniqueIds = await uniqueIds.findOne({ user_id: user_id });
+
+    // Check if details exist or not
+    if (!apiDetails || !uniqueIds) {
+      return "Sorry, couldn't find any of these information in any of our databases collections";
+    } else {
+      const forEachUniqueId = async (uniqueId) => {
+        const hostURL = apiDetails.hostURL;
+        const apiEndpointURL = apiDetails.apiEndpointURL;
+        // const uniqueId = uniqueIds.uniqueId;
+        const apiUrl = `${hostURL}${apiEndpointURL}`;
+        console.log(apiUrl);
+
+        const response = await axios.get(`apiUrl,{ uniqueId }`);
+        const apiData = response.data;
+        console.log(`API Response for unique Identifier: ${uniqueId}`, apiData);
+      };
+
+      // Loop through unique identifiers in the database array
+      for (const uniqueId of uniqueIds) {
+        await forEachUniqueId(uniqueId);
+      }
+
+      if (response.status === 200) {
+        apiScanTime = new Date().toLocaleString();
+        apiOwnerName = `${apiDetails.apiOwnerName}`;
+        apiOwnerEmail = `${apiDetails.apiOwnerEmail}`;
+        apiName = `${apiDetails.apiName}`;
+        apiDescription = `${apiDetails.apiDescription}`;
+        apiUrl = `${apiDetails.hostURL}`;
+        apiScanType = "Broken Objet Level Authorization Scans";
+        apiScanDuration = "";
+        Unique_Identifiers_Used = uniqueIds.uniqueId;
+        Status_code = 200;
+        vulnerable_Message = "";
+        Not_Vulnerable_Message = "";
+        Request = apiUrl;
+        Response = apiData;
+
+        if (Flagged_Keywords === null) {
+        }
+        const newScanReport = new scanReports({
+          user_id,
+          apiScanTime,
+          apiOwnerName,
+          apiOwnerEmail,
+          apiName,
+          apiDescription,
+          apiUrl,
+          apiScanType,
+          apiScanDuration,
+          Unique_Identifiers_Used,
+          Status_code,
+          vulnerable_Message,
+          Not_Vulnerable_Message,
+          Request,
+          Response,
+        });
+
+        const saveReportData = await newScanReport.save();
+
+        return res.status(200).json({
+          savedData: saveReportData,
+          Message:
+            "API BOLA Scan conducted, checkout report for more information",
+        });
+      } else {
+        return "Report data has not been saved";
+      }
+    }
   } catch (error) {
     console.log(error);
   }
