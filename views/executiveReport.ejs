@@ -48,13 +48,6 @@
             API Description: <%= executiveReport.apiDescription %>
           </p>
           <p class="apiURL">API URL: <%= executiveReport.apiURL %></p>
-          <p class="apiKeywords">
-            API Sensitive Keywords: <%= executiveReport.Total_Keywords_Scanned
-            %>
-          </p>
-          <p class="apiIdentifiers">
-            API Identifiers: <%= executiveReport.apiIdentifiers %>
-          </p>
           <p class="scanType">
             API Scan Type: <%= executiveReport.apiScanType %>
           </p>
@@ -64,32 +57,10 @@
         </div>
       </div>
 
-      <div class="reportBreakdownDiv">
-        <h3>Breakdown Report for Broken Object Level Authorization Scan</h3>
-        <div class="bolaReportBreakdown">
-          <div class="vulnerableToBolaScanDetailsDiv">
-            <p class="isVulnrableToBola"></p>
-            <p class="endpointScanned"></p>
-            <p class="apiIdentifiersUsed one"></p>
-            <p class="bolaRequest"></p>
-            <p class="bolaResponse"></p>
-            <p class="bolaResponseStatusCode"></p>
-            <p class="bolaStatusConclusion"></p>
-          </div>
-          <div class="notVulnerableToBolaScanDetailsDiv">
-            <p class="isVulnrableToBola"></p>
-            <p class="endpointScanned"></p>
-            <p class="apiIdentifiersUsed one"></p>
-            <p class="bolaRequest"></p>
-            <p class="bolaResponse"></p>
-            <p class="bolaResponseStatusCode"></p>
-            <p class="bolaStatusConclusion"></p>
-          </div>
-        </div>
-      </div>
-
-      <div class="notVulnerableToSsdScanDetailsDiv">
-        <p class="executiveIsNotVulnerableToBola" id=""></p>
+      <!-- <div class="notVulnerableToSsdScanDetailsDiv">
+        <p class="executiveIsNotVulnerableToBola" id="">
+          Status Code: <%= executiveReport.Status_Code %>
+        </p>
         <p class="executiveIsNotVulnerableToSssd" id=""></p>
         <p class="executiveSecurityPostureHigh" id=""></p>
         <p class="executiveSecurityPriorityMedium" id=""></p>
@@ -102,18 +73,21 @@
         <p class="executiveSecurityPostureLow" id=""></p>
         <p class="executiveSecurityPriorityHigh" id=""></p>
         <p class="executiveCategoryForImediateAction" id=""></p>
-      </div>
+      </div> -->
 
       <!-- Div for Impact of neglecting both BOLA and SSD in API -->
       <div class="impact">
         <div class="bolaImpactDiv">
           <h3>Impact of BOLA vulnerability to Business Logic and Continuity</h3>
-          <p class="executiveBolaImpactReview" id=""></p>
-          <p class="executiveSssdImpactReview" id=""></p>
+          <p class="bolaImpact" id="">
+            Impact of BOLA Vulnerability: <%= executiveReport.Impact_Of_Bola %>
+          </p>
         </div>
         <div class="ssdImpactDiv">
           <h3>Impact of neglecting to Business Logic and Continuity</h3>
-          <p class="ssdImpact"></p>
+          <p class="ssdImpact">
+            Impact of SSD Vulnerability: <%= executiveReport.Impact_Of_Ssds %>
+          </p>
         </div>
       </div>
 
@@ -121,13 +95,17 @@
       <div class="recommendation">
         <div class="bolaReportRecommendationDiv">
           <h3>Recommendation/Mitigation Strategies for BOLA Vulnerability</h3>
-          <p class="bolaRecommendation"></p>
+          <p class="bolaRecommendation">
+            Recommendations for BOLA Vulnerability: <%=
+            executiveReport.Recommendation_For_Bola %>
+          </p>
         </div>
         <div class="ssdReportRecommendationDiv">
-          <h3>
-            Recommendation/Mitigation Strategies for reduced exposure of SSD
-          </h3>
-          <p class="ssdRecommendation"></p>
+          <h3>Recommendation/Mitigation Strategies for SSD Vulnerability</h3>
+          <p class="ssdRecommendation">
+            Recommendations for SSD Vulnerability: <%=
+            executiveReport.Recommendation_For_Ssds %>
+          </p>
         </div>
       </div>
       <footer><p class="copywright">M4z3 Copywright 2024</p></footer>

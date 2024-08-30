@@ -26,9 +26,14 @@ const ssdScanResultSchema = new mongoose.Schema(
     apiName: {
       type: String,
       required: true,
-      unique: false,
+      unique: true,
     },
     apiDescription: {
+      type: String,
+      required: true,
+      unique: false,
+    },
+    apiEndpointScanned: {
       type: String,
       required: true,
       unique: false,
@@ -62,12 +67,7 @@ const ssdScanResultSchema = new mongoose.Schema(
       required: true,
       unique: false,
     },
-    Vulnerable_Message: {
-      type: String,
-      required: true,
-      unique: false,
-    },
-    Not_Vulnerable_Message: {
+    Feedback: {
       type: String,
       required: true,
       unique: false,
@@ -79,6 +79,16 @@ const ssdScanResultSchema = new mongoose.Schema(
     },
     Response: {
       type: mongoose.Schema.Types.Mixed,
+      required: true,
+      unique: false,
+    },
+    Impact_Of_Ssds: {
+      type: String,
+      required: true,
+      unique: false,
+    },
+    Recommendation_For_Ssds: {
+      type: String,
       required: true,
       unique: false,
     },

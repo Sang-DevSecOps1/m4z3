@@ -84,8 +84,6 @@ app.get("/technical-report/:apiName", async (req, res) => {
       .send("There is no saved Technical Scan report in this API name");
   } else {
     res.render("technicalReport.ejs", { technicalReport });
-    if (technicalReport.Flagged_Keywords === null) {
-    }
   }
 });
 
@@ -112,8 +110,6 @@ app.get("/technical-report/:apiName", async (req, res) => {
       .send("There is no saved Technical Scan report in this API name");
   } else {
     res.render("technicalReport.ejs", { technicalReport });
-    if (technicalReport.Flagged_Keywords === null) {
-    }
   }
 });
 

@@ -6,6 +6,7 @@ const {
   collectApiSensitiveKeywords,
   collectUniqueIds,
   fetchUserApiDetailsAndScanForShadowSensitiveData,
+  fetchUserApiDetailsAndScanForBrokenObjectLevelAuthorisation
 } = require("../../controllers/scanShadowSensitiveData.controllers");
 
 router.post("/api/save-api-credentials", saveApiCredentials);
@@ -15,5 +16,7 @@ router.get(
   "/api/get-all-api-data/:user_id",
   fetchUserApiDetailsAndScanForShadowSensitiveData
 );
+router.post("/api/scan-for-bola", fetchUserApiDetailsAndScanForBrokenObjectLevelAuthorisation);
+
 
 module.exports = router;
