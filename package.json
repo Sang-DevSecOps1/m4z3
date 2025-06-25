@@ -7,7 +7,7 @@
     "dotenv": "^16.4.5",
     "ejs": "^3.1.10",
     "express": "^4.19.2",
-    "fs": "^0.0.1-security",
+    "fs": "^0.0.2",
     "fuse.js": "^7.0.0",
     "jsonwebtoken": "^9.0.2",
     "jsreport": "^4.6.0",
