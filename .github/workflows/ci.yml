@@ -3,6 +3,7 @@
 
 name: Node.js CI
 
+#The Events for the workflow
 on:
   push:
     branches: [ "main" ]
