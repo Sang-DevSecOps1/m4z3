@@ -6,9 +6,9 @@ name: Node.js CI
 #The Events for the workflow
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "Actions-CI" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "Actions-CI" ]
 
 jobs:
   build:
